@@ -2,5 +2,39 @@
 \section{Behaviour near parabolic fixed points}
 A point \( p \) is called a parabolic fixed point of \( f \)
 if \( f(p)=p \) and \( f'(p)=e^{2\pi i t} \), where \( t \)
-is a rational number.
-The b
+is a rational number.H
+
+\begin{theorem}[\textbf{The Petal Theorem}]
+Suppose that an analytic map \( f \) has the form:\[
+	f(z)=z-z^{p+1}+\mathcal{O}(z^{2p+1})
+\] near the origin. Then for sufficiently small \( t \),
+\begin{enumerate}
+	\item \( f \) maps each \( \Pi_k(t) \) into itself;
+	\item \( \fof[n](z)\to 0 \) uniformly on each petal;
+	\item \( \arg(\fof[n](z))\to 2k\pi /p \) locally uniformly on each petal;
+	\item \( |f(z)|<|z| \) on a neighbourhood of the axis of each petal;
+	\item \( f:\Pi_k(t)\to \Pi_k(t) \) is conjugate to a translation.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	For \( 0<r_0<1 \), define the sector \( S_0 \), \[
+		S_0=\{re^{i\theta}:0<r<r_0,|\theta |<\pi /p \}
+	\] and the region \( W \), \[
+	W=\{re^{i\theta }:r>\frac{1}{r_0^p},|\theta |>\pi\}
+	.\] 
+	It is clear that the map \( \sigma:z\mapsto \frac{1}{z^p} \) is a biholomorphism
+	of \( S_0 \) onto \( W \) with \( \sigma^{-1}:W\to S_0 \) given by \( \sigma^{-1}(w)=1 /w^{\frac{1}{p}} \).
+	The branch of \( p \)-th root that we select determines which sector of width \( 2\pi /p \), the inverse map
+	maps to (the other sectors being \( S_k=\{0<r<r_0,|\theta -2k\pi /p|<\pi /p \} \).
+
+	Now, the conjugate map of \( f \) on \( W \) is given by,\[
+		g(w)=\sigma f \sigma ^{-1}(w)=f(w^{-\frac{1}{p}})^{-p}
+	.\]
+
+	This just replaces the action of \( f \) on \( S \) by \( g \) on \( W \),
+	and we have the following commutative diagram\\
+	???
+
+
+\end{proof}
