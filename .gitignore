@@ -1,0 +1,7 @@
+*.*
+!.gitattributes
+!.gitignore
+!.tex
+!.pdf
+!.pdf_tex
+!readme.md
