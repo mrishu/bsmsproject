@@ -1,0 +1,31 @@
+\documentclass{scrbook}
+
+\usepackage{mlmodern}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=blue,
+	filecolor=blue,
+	citecolor = black,
+	urlcolor=cyan
+}
+\usepackage[nameinlink]{cleveref}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\fof[1]}{f^{\circ #1}}
+\newcommand{\gog[1]}{g^{\circ #1}}
+\newcommand{\bs}{\backslash}
+
+\begin{document}
+\include{petal_theorem.tex}
+\end{document}
