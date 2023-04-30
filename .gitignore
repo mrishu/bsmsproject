@@ -4,3 +4,5 @@
 !*.pdf
 !*.pdf_tex
 !readme.md
+!*.py
+!*.png
