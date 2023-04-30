@@ -1,21 +1,22 @@
 \documentclass{scrbook}
 
-\usepackage{mlmodern}
-\usepackage{amsmath}
+\usepackage{mlmodern} % bolder fonts than normal
+\usepackage{amsmath} % everything ams
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
-\usepackage{hyperref}
+\usepackage{hyperref} % for links
 \hypersetup{
 	colorlinks=true,
 	linkcolor=blue,
 	filecolor=blue,
-	citecolor = black,
+	citecolor=black,
 	urlcolor=cyan
 }
-\usepackage[nameinlink]{cleveref}
+\usepackage[nameinlink]{cleveref} % easy cross-referencing
 
 \theoremstyle{plain}
+\newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -24,14 +25,21 @@
 
 \newcommand{\fof[1]}{f^{\circ #1}}
 \newcommand{\gog[1]}{g^{\circ #1}}
+\newcommand{\fcof[1]}{f_c^{\circ #1}}
+\newcommand{\ror[1]}{R^{\circ #1}}
+\newcommand{\pop[1]}{P^{\circ #1}}
 \newcommand{\bs}{\backslash}
 \newcommand{\Cinf}{\hat{\mathbb{C}}}
+\newcommand{\Finf}{F_\infty}
 
 \linespread{1.3}
 
 \begin{document}
-% \include{introduction.tex}
-% \include{bottcher.tex}
+
+\include{introduction.tex}
 \include{petal_theorem.tex}
-% \include{mandelbrot_connected.tex}
+\include{bottcher.tex}
+\include{mandelbrot.tex}
+\include{mandelbrot_connected.tex}
+
 \end{document}

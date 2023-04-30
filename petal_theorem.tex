@@ -2,7 +2,11 @@
 \section{Behaviour near parabolic fixed points}
 A point \( p \) is called a parabolic fixed point of \( f \)
 if \( f(p)=p \) and \( f'(p)=e^{2\pi i t} \), where \( t \)
-is a rational number.H
+is a rational number.
+
+% TODO: Add preliminary theorem
+% TODO: Add definition of petals
+% TODO: Add figure for petals
 
 \begin{theorem}[\textbf{The Petal Theorem}]
 Suppose that an analytic map \( f \) has the form:\[
@@ -12,8 +16,8 @@ Suppose that an analytic map \( f \) has the form:\[
 	\item \( f \) maps each \( \Pi_k(t) \) into itself;
 	\item \( \fof[n](z)\to 0 \) uniformly on each petal;
 	\item \( \arg(\fof[n](z))\to 2k\pi /p \) locally uniformly on each petal;
-	\item \( |f(z)|<|z| \) on a neighbourhood of the axis of each petal;
 	\item \( f:\Pi_k(t)\to \Pi_k(t) \) is conjugate to a translation.
+	\item \( |f(z)|<|z| \) on a neighbourhood of the axis of each petal;
 \end{enumerate}
 \end{theorem}
 
@@ -26,15 +30,235 @@ Suppose that an analytic map \( f \) has the form:\[
 	It is clear that the map \( \sigma:z\mapsto \frac{1}{z^p} \) is a biholomorphism
 	of \( S_0 \) onto \( W \) with \( \sigma^{-1}:W\to S_0 \) given by \( \sigma^{-1}(w)=1 /w^{\frac{1}{p}} \).
 	The branch of \( p \)-th root that we select determines which sector of width \( 2\pi /p \), the inverse map
-	maps to (the other sectors being \( S_k=\{0<r<r_0,|\theta -2k\pi /p|<\pi /p \} \).
+	maps to. (The other sectors being \( S_k=\{0<r<r_0,|\theta -2k\pi /p|<\pi /p \} \).)
 
 	Now, the conjugate map of \( f \) on \( W \) is given by,\[
 		g(w)=\sigma f \sigma ^{-1}(w)=f(w^{-\frac{1}{p}})^{-p}
 	.\]
 
 	This just replaces the action of \( f \) on \( S \) by \( g \) on \( W \),
-	and we have the following commutative diagram\\
-	???
+	and we have the following commutative diagram:
 
+	%TODO: add commutative diagram and solve for the estimates of g
+
+	\noindent Hence, we have the following estimates 
+	for \( g \) which will be crucial in everything that will follows:
+	\begin{align}
+		g(w)&=w+p+A /w+\theta (w),\text{ where \( A \) is a constant and} \label{eqn3.1}\\
+		|\theta (w)|&\le B /|w|^{1+\frac{1}{p}}, B>0 \label{eqn3.2}
+	.\end{align}
+
+	\noindent Choose any \( K \) satisfying \[
+	K>\max\{ 1 /r_0^p,3(|A|+B) \}>1 \text{ (as \( r_0<1 \))}
+	\]  and let, \[
+		\Pi=\{x+iy:y^2>4K(K-x)\}
+	.\] Clearly, \( \Pi \) is bounded by a parabola and \( \Pi\subset W \).
+
+	We have chosen this subset \( \Pi\subset W \) because we will show that \( \Pi \)
+	is nothing but the conformal image of \( \Pi_0(t) \) under \( \sigma \) (for a suitable \( t \)) and
+	\( g \) satisfies all the corresponding conditions that \( f \) should satisfy on \( \Pi_0(t) \) according to the
+	theorem.\\
+	\vspace{1pt}
+
+	\noindent \textbf{Claim.} \( \Pi \) is the conformal image of \( \Pi_0(t) \) under \( \sigma \) for a suitable \( t \).\\
+	The easiest way to see this is using polar coordinates. We write, \( z=re^{i\theta } \) for \( z\in S \) 
+	and \( w=\rho e^{i \phi } \) for \( w\in W \). Then, \( \rho=\frac{1}{r^p} \) and \( \phi=-p\theta  \).
+	
+	Now, we need to express \( \Pi  \) in polar co-ordinates. To do so, we notice that points on the parabola are given by \[
+		\rho \text{ (distance from focus i.e. \( 0 \))}= 2K-\rho \cos \phi \text{ (distance from directrix i.e. \( y=2K \))}
+	.\] 
+	Therefore, points on \( \Pi \) are given by \[
+		\rho > 2K-\rho \cos \phi 
+	.\] 
+	% TODO: Add figure
+	Hence, \[
+		\Pi=\{\rho e^{i\phi }:2K<\rho (1+\cos \phi )\}
+	.\] Now, let \( \Omega=\sigma^{-1}(\Pi) \).
+	Then, \( \Omega \) is given by \[
+		\Omega=\{re^{i \theta }:2Kr^p<1+\cos (p\theta )\}
+.\] Hence, \( \Omega=\Pi_0\left(\frac{1}{2K}\right) \)
+
+\begin{lemma}
+	\( g \) satisfies the following properties on \( \Pi \):
+	\begin{enumerate}
+		\item \(\Pi\) is forward invariant under \( g \).
+		\item \( \gog[n](w)\to \infty \) uniformly on \( \Pi \).
+		\item \( \arg(\gog[n](w))\to 0 \) locally uniformly on \( \Pi \).
+		\item \( g:\Pi\to \Pi \) is conjugate to a translation.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}\text{}\\
+	\noindent \textbf{\emph{1.}} We write, \[
+		w=x+iy,\,\, g(w)=X+iY,\,\, A /w+\theta(w)=a+ib
+	.\] 
+	From \Cref{eqn3.1}, we obtain,
+	\begin{align*}
+		X+iY=(x+iy)+p+(a+ib)\\
+	\implies X=x+p+a\text{ and }Y=y+b
+	.\end{align*}
+	Now, if \( w\in \Pi  \),
+	\begin{align*}
+		Y^2-4K(K-X)&=(y+b)^2-4K(K-x-p-a)\\
+				   &=[y^2-4K(K-x)]+b^2+2yb+4K(a+p)\\
+				   &> 4Kp+(2yb+4Ka)\\
+				   &\ge |4Kp- |2yb+4Ka| |
+	.\end{align*}
+	Now, for \( w\in\Pi \), \( |w|>K>1 \). Hence we get,
+	\begin{align}
+		|w||A /w+\theta (w)|\le |w| (|A| /|w|+ B /|w|^{1+\frac{1}{p}})=|A|+B /|w|^{\frac{1}{p}}<|A|+B \label{eqn3.3}
+	\end{align}
+	(since for \( |w|>1 \), \( |w|^{\frac{1}{p}}>1 \)).  Therefore,
+	\begin{align*}
+		|2yb+4Ka|&\le 2|yb|	+4K|a|\\
+				 &\le 2|y| |b|+4 K |a| \\
+				 &\le 2|w| |a+ib| +4 |w| |a+ib| \\
+				 &=6|w| |a+ib|\\
+				 &<2K<2Kp
+	.\end{align*}
+	Therefore, we see that \( Y^2-4K(K-X)>0 \) and hence, \( g(w)\in \Pi \) for \( w\in \Pi \).
+	Hence, \( \Pi \) is forward invariant under \( g \).\\
+	\vspace{1pt}
+
+	\noindent \textbf{\emph{2.}} Now, we will prove a stronger statement that for any \( t>0 \)
+	\( g \) maps \( \Pi+t \) into \( \Pi+t+p /2 \). This is simply because, for \( w\in\Pi+t \),
+	we have, \( y^2-4K(K+t-x)>0 \). Hence,
+	\begin{align*}
+		Y^2-4K(K+t+p /2-X)&=[y^2-4K(K+t-x)]+b^2+2yb+4K(a-p /2)\\
+		&> 2Kp+(2yb+4Ka)\\
+		&\ge |2Kp - |2yb+4Ka| |\\
+		&>0
+	.\end{align*}
+	Therefore, if \( w\in\Pi \), \( \gog[n](w)\in \Pi+np /2 \). Hence, \( |\gog[n](w)|>\sqrt{n}  \).
+	This is simply because, \( K+np /2>1+n /2>\sqrt{n}  \) and hence \( \Pi+np /2 \) is disjoint from the
+disc \( \{|z|\le \sqrt{n} \} \).
+
+Hence, \( \gog[n](w)\to \infty \) uniformly on \( \Pi \).\\
+\vspace{1pt}
+
+\noindent \textbf{\emph{3.}} Firstly, we see that, \[
+	\gog[k](w)=g(\gog[k](w))=\gog[k](w)+p+A /\gog[k](w)+\theta (\gog[k](w))
+.\] 
+By expanding the first term again and again, we obtain,
+\begin{align}
+	\gog[n](w)&=w+np+ \sum_{k=0}^{n-1} \left(\frac{A}{\gog[k](w)}  +\theta(\gog[k](w))\right) \label{eqn3.4}
+.\end{align}
+
+Also note that form \Cref{eqn3.3}, we have, \[
+	|A /w+\theta (w)|<(|A|+B) /K <\frac{1}{3}
+.\] 
+
+Let \( Q \) be a compact subset of \( \Pi \). From now, we will assume that \( w\in Q \) and we will use
+\( C_1,C_2,C_3,\ldots  \) to denote positive constants which will be dependent on \( Q \).
+
+Hence,
+\begin{align*}
+|g(w)|=|w+p+A /w+\theta (w)|&\ge ||w+p|-|A /w+\theta (w)| |\\
+								&= |w+p|-|A /w+\theta (w)|\\
+								&\ge |w|+p-\frac{1}{3}
+.\end{align*}
+Therefore, we obtain, \[
+	|\gog[n](w)|\ge |w|+n(p-1 /3)\ge C_1+C_2n
+.\] 
+(Here, \( C_1=\min\{|w|:w\in Q\}>0 \) and \( C_2=p-\frac{1}{3}>0 \).)\\
+We can select \( C_3 \) large enough such that
+\begin{align}
+	|\gog[n](w)|\ge C_3 n\label{eqn3.5}
+\end{align}
+Next, with \Cref{eqn3.2}, and the above inequality, we get,
+\begin{align}
+	|\theta (\gog[n](w)|\le B /|\gog[n](w)|^{1+\frac{1}{p}}\le C_4 /n^{1+\frac{1}{p}}\label{eqn3.6}
+.\end{align}
+
+Finally, combining the above two inequalities and \Cref{eqn3.4}, we obtain,
+\begin{align*}
+	|\gog[n](w)-np|&\le |w|+|A /w+\theta (w)|+\frac{|A|}{C_3}\sum_{k=1}^{n-1} \frac{1}{k}+C_4\sum_{k=1}^{n-1} \frac{1}{n^{1+\frac{1}{p}}}\\
+				   &< C_5+C_6\sum_{k=1}^{n} \frac{1}{k}
+.\end{align*}
+(Here, \( C_5=\max\{|w|:w\in Q\}+\frac{1}{3}+C_4\sum_{n=1}^{\infty}  1 /n^{1+\frac{1}{p}} \) and \( C_6=|A| /C_3\).)\\
+We can select \( C_7 \) large enough such that
+\begin{align}
+	|\gog[n](w)-np|<C_7 \log n \label{eqn3.7}
+.\end{align}
+
+\begin{remark}
+	The above inequality follows from the fact that, if \( H_n=\sum_{k=1}^n \frac{1}{k} \), then \( H_n-\log n\to \gamma \).
+	(\( \gamma \) is known as the Euler's constant).
+	So, we have that
+	\begin{align*}
+		P+QH_n &=P+Q(\log n+\gamma +\epsilon_n), \text{where \( \epsilon_n\to 0 \)}\\
+			   &\le Q\log n+(P+Q\max\{\epsilon_n\}+Q\gamma)\\
+			   &=Q\log n+R\\
+			   &<S \log n
+	\end{align*} for \( S \) large enough.
+\end{remark}
+% TODO: Add figure
+From, \( |\gog[n](w)-np|<C_7\log n \), it follows that \( |\arg(\gog[n](w)|<\sin ^{-1}\left(\frac{C_7\log n}{np}\right) \)
+for \( n \) large enough. Hence, \( \arg(\gog[n](w))\to 0 \) uniformly on \( Q \), and consequently, locally uniformly on \( \Pi \).\\
+\vspace{1pt}
+
+\noindent\textbf{\emph{4.}} Define, \[
+	u_n(w)=\gog[n](w)-np-(A /p)\log n
+.\] 
+\noindent\textbf{Claim.} \( u_n(w) \) converges locally uniformly on \( \Pi \) to a holomorphic function \( u \), that is one-to-one
+on \( \Pi \).
+\begin{align*}
+	u_{n+1}(w)-u_n(w)&=[\gog[n+1](w)-\gog[n](w)]-p-(A /p)\log \left(\frac{n+1}{n}\right)
+.\end{align*}
+From \Cref{eqn3.2}, we obtain, 
+\begin{align*}
+	u_{n+1}(w)-u_n(w) &= \!\begin{multlined}[t]
+							[\gog[n](w)+p+A /\gog[n](w)+\theta(\gog[n](w))-\gog[n](w)]\\
+							 -p-(A /p)\log (1+1 /n)
+						 \end{multlined}\\
+					  &= A /\gog[n](w)+\theta (\gog[n](w))- (A /p)\log (1+1 /n)\\
+					  &= A(1 /\gog[n](w)-1 /np)+\theta (\gog[n](w))+(A /p)(1 /n-\log (1+1 /n))
+.\end{align*}
+Now, let \( Q \) is a compact subset of \( \Pi \) and \( w\in Q \).
+We need to prove that \( u_n \) converges uniformly in \( Q \). From the above equation, to prove
+that \( u_n \) converges uniformly in \( Q \), we need to show that each of the following series converges uniformly in \( Q \):\[
+	\sum_n |1 /\gog[n](w)-1 /np|,\,\,\sum_n|\theta (\gog[n](w)),\,\,\sum_n|1 /n-\log (1+1 /n)|
+.\] 
+Let us look at the first series. We have, (using \Cref{eqn3.5,eqn3.7}) \[
+	|1 /\gog[n](w)-1 /np|=\frac{|\gog[n](w)-np|}{|\gog[n](w)|np}\le \frac{C_7 \log n}{C_3 n^2 p}=C_8\log n /n^2
+.\] 
+(Here \( C_8=C_7 /(pC_3) \)).
+
+\noindent From \Cref{eqn3.6}, it is clear that \( \sum_n |\theta(\gog[n](w))| \) converges.
+
+\noindent Now, \( 0<x-\log (1+x)\le   x^2 \) for \( x>0 \). \\
+This is because, it is zero at \( x=0 \)
+and \( \frac{d}{dx}(x-\log (1+x))=1-\frac{1}{1+x}>0 \) for \( x>0 \).\\
+Also, \( x^2-x+\log (1+x) \) is zero at \( x=0 \) 
+and \( \frac{d}{dx}(x^2-x+\log (1+x))=2x-1+\frac{1}{1+x}>0 \) for \( x>0 \).
+
+Putting \( x=\frac{1}{n} \), we get, \[
+	|1 /n-\log (1+ 1 /n)|<1 /n^2
+.\] 
+Therefore, \( u_n\) converges locally uniformly to some holomorphic function \( u \) on \( \Pi \).\\
+Now, from \( u_n(w)=\gog[n](w)-np-(A /p)\log n \), we get that, 
+\begin{align*}
+	(n+1)p+(A /p)\log (n+1)+u_{n+1}(w)&=\gog[n+1](w)\\
+									  &=\gog[n](g(w))\\
+									  &=np+(A /p)\log n+u_n(g(w))\\
+	\implies p+(A /p)\log (1+1 /n)+u_{n+1}(w)&=u_n(g(w))
+.\end{align*}
+Taking limit \( n\to \infty \), we get, \[
+	p+u(w)=u(g(w))
+.\] 
+Since \( f \) is injective near the origin, \( g \) is injective on \( \Pi \),
+(if \( K \) is chosen large enough). Therefore, \( \gog[n] \) is injective on \( \Pi \)
+and hence, so is \( u_n \). By Hurwitz Theorem, \( u \) is either injective or constant, but it
+is clearly not a constant since it satisfies the above equation.
+
+This shows that \( g:\Pi\to \Pi \) is conjugate to the map \( z\mapsto z+p \) of \( u(\Pi) \) into
+itself.
+\end{proof}
+
+Coming back to our original theorem, we see that since \( g \) maps \( \Pi \) into itself, \( f\)
+also maps each \( \Pi_k(t) \) into itself.
+
+Now since, \( |\gog[n](w)|>\sqrt{n}  \) for all \( w\in\Pi \), 
+\( |\sigma \fof[n]\sigma^{-1}(w)|\to \infty \)
+uniformly on \( \Pi \).
 
 \end{proof}
