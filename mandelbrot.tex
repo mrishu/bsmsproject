@@ -75,16 +75,34 @@ Hence, by the Fundamental Dichotomy, \( F_c \) is simply connected \( \iff \) \(
 we get,
 \begin{align*}
 	M&=\{c\in \mathbb{C}:0\in K_c\}\\
-	 &=\{c\in \mathbb{C}:(c_n)\text{ is bounded}\}\\
+	 &=\{c\in \mathbb{C}:(c_n)\text{ is bounded}\}
 .\end{align*}
 Note that \( c_0=0 \) and \( c_1=f_c(0)=c \). So, \( (c_n) \) is also the forward orbit of \( c \). Hence, in other words,
 the Mandelbrot Set consists of \( c\in \mathbb{C} \) such that its forward orbit under the map \( f_c \)
 remains bounded.
 
-\subsection{The other end of the Dichotomy Theorem}
+\section{The other end of the Dichotomy Theorem}
 By the Dichotomy Theorem, we can say that if even one finite critical point of \( P \) lies in \( F_\infty \), then \( K \)
 cannot be connected. But this theorem states that if all finite critical points of \( P \) lie in \( F_\infty \), then
 \( K \) is not only disconnected, but totally disconnected.
+
+\begin{definition}[Cantor set]
+	A subset \( X\subset \Cinf \) is called a Cantor set if it is non-empty, closed, perfect and totally disconnected.
+\end{definition}
+
+\begin{theorem}
+	Let \( R \) be a rational map with \( \deg(R)\ge 2 \). Let \( \alpha \) be a super-attracting fixed
+	point of \( R \). If the Fatou component of \( R \) containing \( \alpha \), say \( F_\alpha \),
+	contains all the critical points of \( R \), then \( J(R) \) is a Cantor set.
+\end{theorem}
+
+\begin{corollary}
+	If \( c\not\in M \), then \( J_c \) is a Cantor set.
+\end{corollary}
+\begin{proof}
+	Since \( 0 \) is the only critical points of \( f_c \) (apart from \( \infty \)), if it belongs to \( F_c=F_\infty(f_c) \), 
+	i.e. if \( 0\not\in K_c \iff c\not\in M \), then \( J_c \) is a Cantor set.
+\end{proof}
 
 \section{Some properties of the Mandelbrot Set}
 We know, \( M=\{c\in \mathbb{C}:(c_n)\text{ is bounded}\} \). 
@@ -127,6 +145,6 @@ and hence is bounded.
 
 \end{proof}
 
-\subsection{Plotting the Mandelbrot Set}
+\section{Plotting the Mandelbrot Set}
 \Cref{thm4.1} is also used to plot the Mandelbrot Set.
 % TODO
