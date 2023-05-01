@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,12pt]{report}
 
 % For the titlepage
 \author{Aditya Dutta}
@@ -28,12 +28,11 @@
 \usepackage{booktabs} % better latex tables
 \usepackage{apacite} % for bibliography
 
-% Gilles's castel's command for inkscape images
+% Gilles's castel's code for including inkscape images
 \usepackage{import}
 \usepackage{xifthen}
 \usepackage{pdfpages}
 \usepackage{transparent}
-
 \newcommand{\incfig}[1]{%
     \def\svgwidth{\columnwidth}
     \import{./figures/}{#1.pdf_tex}
