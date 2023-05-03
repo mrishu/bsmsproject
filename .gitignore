@@ -1,8 +1,6 @@
-*.*
-!.gitignore
-!*.tex
-!*.pdf
-!*.pdf_tex
-!readme.md
-!*.py
-!*.png
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.log
+*.out
