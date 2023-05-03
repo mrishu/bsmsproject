@@ -4,9 +4,41 @@ A point \( p \) is called a parabolic fixed point of \( f \)
 if \( f(p)=p \) and \( f'(p)=e^{2\pi i t} \), where \( t \)
 is a rational number.
 
-% TODO: Add previous theorem
-% TODO: Add definition of petals
-% TODO: Add figure for petals
+\begin{lemma}
+	Suppose \( f \) is analytic and satisfies \[
+		f(z)=z-z^{p+1}+\mathcal{O}(z^{p+2})
+	\] in some neighbourhood \( N \) of the origin. Let \( \omega_1,\ldots ,\omega_p \) be the \( p \)-th
+	roots of unity and let \( \eta_1,\ldots ,\eta_p \) be the \( p \)-th roots of \( -1 \).
+	Then for sufficiently small \( r_0 \) and \( \theta _0 \), 
+	\begin{enumerate}
+		\item \( |f(z)|<|z| \) on each sector \[
+				S_j=\{re^{i\theta}:0<r<r_0,|\theta -\arg(\omega_j)|<\theta _0\}
+		.\] 
+	\item \( |f(z)|>|z| \) on each sector \[
+				\Sigma_j=\{re^{i\theta}:0<r<r_0,|\theta -\arg(\eta_j)|<\theta _0\}
+	.\] 
+	\end{enumerate}
+\end{lemma}
+
+Before stating the \emph{Petal Theorem}, which discusses the
+behaviour of analytic functions near parabolic fixed points, we first define the notions
+of \emph{petals}.
+\begin{definition}[Petals]
+	Let \( p\in \mathbb{N} \). For each \( k\in\{1,\ldots ,p-1\} \), define the sets as a function of a parameter \( t>0 \)
+	as follows, \[
+		\Pi_k(t)=\{re^{i\theta}:r^p<t(1+\cos (p\theta));|\theta-2k\pi /p|<\pi /p\}
+	.\] 
+	The sets \( \Pi_k(t) \) are known as Petals.
+\end{definition}
+We have shown a diagram of the petals \( \Pi_k(t) \) in \Cref{petals} for \( p=6 \).\\
+Note that all the petals are pairwise disjoint and each petal subtends an angle of \( 2\pi /p \) at the origin.
+
+\begin{figure}[ht]
+	\centering
+	\incfig{petals}
+	\caption{Six petals at the origin for $p=6$.}
+	\label{petals}
+\end{figure}
 
 \begin{theorem}[\textbf{The Petal Theorem}]
 Suppose that an analytic map \( f \) has the form:\[
@@ -27,6 +59,14 @@ Suppose that an analytic map \( f \) has the form:\[
 	\] and the region \( W \), \[
 	W=\{re^{i\theta }:r>\frac{1}{r_0^p},|\theta |>\pi\}
 	.\] 
+
+\begin{figure}[ht]
+    \centering
+    \incfig{sigmamap}
+    \caption{$\sigma$ is a biholomorphism from $S$ onto $W$.}
+    \label{sigmamap}
+\end{figure}
+
 	It is clear that the map \( \sigma:z\mapsto \frac{1}{z^p} \) is a biholomorphism
 	of \( S_0 \) onto \( W \) with \( \sigma^{-1}:W\to S_0 \) given by \( \sigma^{-1}(w)=1 /w^{\frac{1}{p}} \).
 	The branch of \( p \)-th root that we select determines which sector of width \( 2\pi /p \), the inverse map
@@ -52,7 +92,13 @@ Suppose that an analytic map \( f \) has the form:\[
 	K>\max\{ 1 /r_0^p,3(|A|+B) \}>1 \text{ (as \( r_0<1 \))}
 	\]  and let, \[
 		\Pi=\{x+iy:y^2>4K(K-x)\}
-	.\] Clearly, \( \Pi \) is bounded by a parabola and \( \Pi\subset W \).
+	.\] Clearly, \( \Pi \) is bounded by a parabola and \( \Pi\subset W \) (See \Cref{parabola}).
+\begin{figure}[ht]
+    \centering
+    \incfig{parabola}
+	\caption{$\Pi=\{(x,y):y^2>4K(K-x)\}$.}
+    \label{parabola}
+\end{figure}
 
 	We have chosen this subset \( \Pi\subset W \) because we will show that \( \Pi \)
 	is nothing but the conformal image of \( \Pi_0(t) \) under \( \sigma \) (for a suitable \( t \)) and
@@ -63,14 +109,20 @@ Suppose that an analytic map \( f \) has the form:\[
 	\noindent \textbf{Claim.} \( \Pi \) is the conformal image of \( \Pi_0(t) \) under \( \sigma \) for a suitable \( t \).\\
 	The easiest way to see this is using polar coordinates. We write, \( z=re^{i\theta } \) for \( z\in S \) 
 	and \( w=\rho e^{i \phi } \) for \( w\in W \). Then, \( \rho=\frac{1}{r^p} \) and \( \phi=-p\theta  \).
+
+	\begin{figure}[ht]
+		\centering
+		\incfig{parabola2}
+		\caption{$\Pi=\{\rho e^{i\phi}:\rho>2K-\rho\cos\phi\}$.}
+		\label{parabola2}
+	\end{figure}
 	
 	Now, we need to express \( \Pi  \) in polar co-ordinates. To do so, we notice that points on the parabola are given by \[
 		\rho \text{ (distance from focus i.e. \( 0 \))}= 2K-\rho \cos \phi \text{ (distance from directrix i.e. \( y=2K \))}
-	.\] 
+	.\] (See \Cref{parabola2}).
 	Therefore, points on \( \Pi \) are given by \[
 		\rho > 2K-\rho \cos \phi 
 	.\] 
-	% TODO: Add figure
 	Hence, \[
 		\Pi=\{\rho e^{i\phi }:2K<\rho (1+\cos \phi )\}
 	.\] Now, let \( \Omega=\sigma^{-1}(\Pi) \).
@@ -195,7 +247,7 @@ We can select \( C_7 \) large enough such that
 \begin{figure}[ht]
     \centering
     \incfig{argogn}
-    \caption{}
+	\caption{$|\arg(\gog[n](w))|\le \sin^{-1}(\frac{C_7 \log n}{np})$.}
     \label{argogn}
 \end{figure}
 From, \( |\gog[n](w)-np|<C_7\log n \), it follows that \( |\arg(\gog[n](w)|<\sin ^{-1}\left(\frac{C_7\log n}{np}\right) \)

@@ -1,1 +1,246 @@
 \chapter{Bottcher's Theorem and its extension}
+\section{Bottcher's Coordinates}
+A fixed point $z_{0}$ is called a super-attracting fixed point of $f$ if $f^{\prime}\left(z_{0}\right)=0$.
+
+If $z_{0}$ is a super-attracting fixed point for $f$, we can conjugate the map such that $z=0$ becomes our super-attracting fixed point.
+
+Thus, our map takes the form $f(z)=a_{n} z^{n}+a_{n+1} z^{n+1}+\ldots$ in a neighbourhood of 0 , with $n \geq 2$ and $a_{n} \neq 0$, where the integer $n$ is called the local degree.
+
+\begin{theorem}[\textbf{Bottcher's Theorem}]
+	With $f$ as above, $\exists$ a local holomorphic change of coordinates $w=\phi(z)$, with $\phi(0)=0$, which conjugates $f$ to $w \mapsto w^{n}$ throughout some neighbourhood of 0 .\\
+Furthermore, $\phi$ is unique upto multiplication by an $(n-1)$ th root of unity.
+\end{theorem}
+
+\begin{proof}
+	\textbf{Existence.} Let $c \in \mathbb{C}$ be such that $c^{n-1}=a_{n}$. Then, the linearly conjugate map $c f(z / c)$ will have leading coefficient +1 . Thus, without loss of generality, we will assume that our map $f$ has the form $f(z)=z^{n}\left(1+b_{1} z+b_{2} z^{2}+\ldots\right)=z^{n}(1+\eta(z))$, where $\eta(z)=\left(1+b_{1} z+b_{2} z^{2}+\ldots\right)$.
+
+Choose $r \in\left(0, \frac{1}{2}\right)$ such that $|\eta(z)|<\frac{1}{2} \forall z \in \mathbb{D}_{r}$. This can be done since $\eta(0)=0$ and $\eta$ is continuous.
+
+On this disc, we have two properties of $f$ :
+
+\begin{enumerate}
+  \item $f$ maps this disc into itself:
+\end{enumerate}
+
+We have, $|f(z)|=\left|z^{n}\right||1+\eta(z)| \leq|z|^{n}(1+|\eta(z)|)<\frac{3}{2}|z|^{n} \leq \frac{3}{2^{n}}|z| \leq \frac{3}{4}|z| \forall z \in \mathbb{D}_{r}$. Here we are using the fact that $n \geq 2,|z|<\frac{1}{2}$ and $|\eta(z)|<\frac{1}{2}$ on $\mathbb{D}_{r}$.
+
+\begin{enumerate}
+  \setcounter{enumi}{1}
+  \item $f(z) \neq 0 \forall z \in \mathbb{D}_{r} \backslash\{0\}.$
+\end{enumerate}
+
+This is simply because $|f(z)|=|z|^{n}|1+\eta(z)|$ and since $|\eta(z)|<\frac{1}{2}$ on $\mathbb{D}_{r}$, we can't have $\eta(z)=-1$.
+
+The k-th iterate of $f$ i.e. $f^{\circ k}$ also maps the $\mathbb{D}_{r}$ into itself and $f^{\circ k}(z) \neq 0$ on $\mathbb{D}_{r} \backslash\{0\}$. Inductively, it can be shown that it has the form $f^{\circ k}(z)=z^{n^{k}}\left(1+n^{k-1} b_{1} z+\ldots\right)$.
+
+The idea of the proof is to set,
+
+$$
+\phi_{k}(z)=\left(f^{\circ k}(z)\right)^{\frac{1}{n^{k}}}=z\left(1+n^{k-1} b_{1} z+\ldots\right)^{\frac{1}{n^{k}}}
+$$
+
+We choose $z$ as our branch of holomorphic $n^{k}$ th root of $z^{n^{k}}$.
+
+Now, we can choose a holomorphic branch of $\left(1+n^{k-1} b_{1} z+\ldots\right)^{\frac{1}{n^{k}}}$ on $\mathbb{D}_{r}$ since $\mathbb{D}_{r}$ is simply connected and $\left(1+n^{k-1} b_{1} z+\ldots\right) \neq 0$ on $\mathbb{D}_{r}$ since $f^{\circ k}(z) \neq 0$ on $\mathbb{D}_{r} \backslash\{0\}$. Therefore we set,
+
+$$
+\phi_{k}(z)=z\left(1+n^{k-1} b_{1} z+\ldots\right)^{\frac{1}{n^{k}}}=z\left(1+\frac{b_{1}}{n} z+\ldots\right)
+$$
+
+where the expression on the right provides us an explicit choice of $n^{k}$ th root.
+
+We will show that the functions $\phi_{k}$ converge uniformly to a limit function $\phi$ on $\mathbb{D}_{r}$. To prove the convergence, we make the substitution $z=e^{u}$ where $u$ ranges over the left half plane $\mathbb{H}_{r}:=\{u: \operatorname{Re}(u)<\log r\}$. The exponential map maps $\mathbb{H}_{r}$ onto $\mathbb{D}_{r} \backslash\{0\}$.
+
+The map $f$ from $\mathbb{D}_{r}$ into itself corresponds to a map from $\mathbb{H}_{r}$ into itself given by $F(u)=\log f\left(e^{u}\right)$. We can select a holomorphic branch of the logarithm of $f\left(e^{u}\right)$ because $\mathbb{H}_{r}$ is simply connected and $f\left(e^{u}\right) \neq 0$ on $\mathbb{H}_{r}$.
+
+Set $\eta=\eta\left(e^{u}\right)=b_{1} e^{u}+b_{2} e^{2 u}+\ldots$, then since $|\eta|<\frac{1}{2}$, we see that $F$ can be written as
+
+$$
+F(u)=\log \left(e^{n u}(1+\eta)\right)=n u+\log (1+\eta)=n u+\left(\eta-\frac{\eta^{2}}{2}+\frac{\eta^{3}}{3}-+\ldots\right)
+$$
+
+where the final expression provides us an explicit choice of which branch of logarithm we are using. Clearly, $F: \mathbb{H}_{r} \rightarrow \mathbb{H}_{r}$ is a well-defined holomorphic function.
+
+Similarly, the map $\phi_{k}$ corresponds to a map, $\Phi_{k}(u)=\log \phi_{k}\left(e^{u}\right)$.
+
+$$
+\Phi_{k}(u)=\log \phi_{k}\left(e^{u}\right)=\log f^{\circ k}\left(e^{u}\right)^{\frac{1}{n^{k}}}=\frac{1}{n^{k}} \log f^{\circ k}\left(e^{u}\right) .
+$$
+
+Since we have already fixed the branch of logarithm that we are using, we see that,
+
+$$
+\log f^{\circ k}\left(e^{u}\right)=\log f\left(f^{\circ k-1}\left(e^{u}\right)\right)=\log f\left(e^{\log f^{\circ k-1}\left(e^{u}\right)}\right)=F\left(\log f^{\circ k-1}\left(e^{u}\right)\right)
+$$
+
+Hence, inductively we can see that $\log f^{\circ k}\left(e^{u}\right)=F^{\circ k}(u)$.
+
+Therefore, $\Phi_{k}(u)=F^{\circ k}(u) / n^{k}$. It is clear from this expression that $\Phi_{k}: \mathbb{H}_{r} \rightarrow \mathbb{H}$.
+
+Now since $|\eta|<\frac{1}{2}$, we have
+
+$$
+|F(u)-n u|=|\log (1+\eta)|<\log 2<1
+$$
+
+Hence,
+
+$$
+\left|\Phi_{k+1}(u)-\Phi_{k}(u)\right|=\frac{1}{n^{k+1}}\left|F^{\circ k+1}(u)-n F^{\circ k}(u)\right|<\frac{1}{n^{k+1}}
+$$
+
+by the above inequality.
+
+We have, $\phi_{k}\left(e^{u}\right)=e^{\Phi_{k}(u)}$. Since, the exponential map, $e^{\square}: \mathbb{H} \rightarrow \mathbb{D}$ from the left half plane to the unit disc decreases distance, we have
+
+$$
+\left|\phi_{k+1}(z)-\phi_{k}(z)\right|<\frac{1}{n^{k+1}} \forall z \in \mathbb{D}_{r} \backslash\{0\} .
+$$
+
+Since $\phi_{k}(0)=0$ for all $k$, we have
+
+$$
+\left|\phi_{k+1}(z)-\phi_{k}(z)\right|<\frac{1}{n^{k+1}} \forall z \in \mathbb{D}_{r}
+$$
+
+Hence, the maps $\phi_{k}$ converge uniformly to some limit function $\phi$ on $\mathbb{D}_{r}$ by the Cauchy criterion for uniform convergence.
+
+Clearly, $\phi(0)=0$ and $\phi$ is holomorphic on $\mathbb{D}_{r}$ by Weierstrass convergence theorem.
+
+It is clear that each $\phi_{k}: \mathbb{D}_{r} \rightarrow \mathbb{D}$. This is because $\phi_{k}\left(e^{u}\right)=e^{\Phi_{k}(u)}$ and $\Phi_{k}: \mathbb{H}_{r} \rightarrow \mathbb{H}$ and $e^{\square}: \mathbb{H} \rightarrow \mathbb{D} \backslash\{0\}$. Hence, $\phi: \mathbb{D}_{r} \rightarrow \mathbb{D}$. (Clearly $\operatorname{Im}(\phi)$ cannot contain points from $\partial \mathbb{D}$ because $\phi$ is holomorphic, hence it is an open map).
+
+Now, it can be easily seen that, $\phi_{k}(f(z))=\phi_{k+1}(z)^{n}$.
+
+Hence, $\lim _{k \rightarrow \infty} \phi_{k}(f(z))=\lim _{k \rightarrow \infty} \phi_{k+1}(z)^{n} \Longrightarrow \phi(f(z))=\phi(z)^{n}$ by continuity of $n$th power map.
+
+Also, since $\phi_{k}^{\prime}(0)=1 \forall k \in \mathbb{N}$ (from the power series of $\phi_{k}$ ), we have $\phi^{\prime}(0)=1$. Hence, $\phi$ is invertible in some neighbourhood of 0 .
+
+Therefore, we have a holomorphic change of coordinates in some neighbourhood of 0 which conjugates $f$ to the $n$th power map. In this neighbourhood, $\phi$ is one-to-one, $f(z) \neq 0$ for $z \neq 0$ (i.e. no other point maps to the super-attracting fixed point via $f$ ) and $f$ maps this neighbourhood into itself.\\
+\vspace{1pt}
+
+\noindent \textbf{Uniqueness.} It suffices to study the special case $f(z)=z^{n}$. If we can prove that any map which conjugates $z \mapsto z^{n}$ to itself is just multiplication by $(n-1)$ th root of unity, then for any general map $f(z)=a_{n} z^{n}+a_{n+1} z^{n+1}+\ldots$, if we have two maps $\phi$ and $\psi$ which conjugate it to $z \mapsto z^{n}$, then $\phi \circ \psi^{-1}$ is a map which conjugates $z \mapsto z^{n}$ to itself. Hence, $\phi \circ \psi^{-1}=c z$, where $c^{n-1}=1$. Therefore, $\phi=c \psi$, where $c$ is a $(n-1)$ th root of unity.
+
+So, let $\phi(z)=c_{1} z+c_{k} z^{k}+\ldots,\left(c_{1} \neq 0\right)$ be a map which conjugates $z \mapsto z^{n}$ to itself. Then, we should have $\phi\left(z^{n}\right)=\phi(z)^{n}$. Now,
+
+$$
+\phi\left(z^{n}\right)=c_{1} z^{n}+c_{k} z^{n k}+\ldots
+$$
+
+and
+
+$$
+\phi(z)^{n}=c_{1}^{n} z^{n}+n c_{1}^{n-1} c_{k} z^{n+k-1}+\ldots
+$$
+
+Comparing coefficients, we get $c_{1}^{n}=c_{1}$ and $n c_{1}^{n-1} c_{k}=0$ since $n k>n+k-1$ for $k \geq 2$. Therefore, we get $c_{1}^{n-1}=1$ and $c_{k}=0$. The form $\phi(z)=c_{1} z+c_{k} z^{k}+\ldots$ can be modified to any $k \geq 2$ to get $c_{k}=0$ by the same process.
+
+Therefore, $\phi(z)=c z$, where $c$ is a $(n-1)$ th root of unity.
+
+	
+\end{proof}
+\section{Extension of Bottcher's coordinates}
+We might hope to extend the Bottcher's coordinates to the whole of the immediate basin of attraction of the super-attracting fixed point. But this is not always possible. This is because, it requires computing expressions of the form $z \mapsto\left(\phi\left(f^{\circ k}(z)\right)^{\frac{1}{n^{k}}}\right.$, which is not always possible. For example, the basin may not be simply connected, or some point may map directly onto the super-attracting fixed point, in which case we can't take $n^{k}$-th roots, because $\phi\left(f^{\circ k}(z)\right)$ must be zero at those points.
+
+\begin{theorem}[\textbf{Extension of $|\phi|$}]
+If $f$ has a super-attracting fixed point $p$, with immediate basin of attraction $\mathcal{A}$, then the function $z \mapsto|\phi(z)|$ of the above theorem extends uniquely to a continuous map $|\phi|: \mathcal{A} \rightarrow[0,1)$ which satisfies $|\phi|(f(z))=|\phi|(z)^{n}$.
+
+Furthermore, $|\phi|$ is real analytic except at the iterated preimages of $p$, where it takes the value 0 .
+\end{theorem}
+
+\begin{proof}
+Set $|\phi|(z)=\left|\phi\left(f^{\circ k}(z)\right)\right|^{\frac{1}{n^{k}}}$ for large enough $k$ for each $z \in \mathcal{A}$. $\phi$ is only defined in a some small neighbourhood of $p$. But since, $f^{\circ k} \rightarrow p$ locally uniformly in $\mathcal{A}$, after $k$ many iterates for some large $k, f^{\circ k}(z)$ belongs to the domain of definition of $\phi$, which we shall call $\hat{U}$.
+
+It is independent of the value of $k$ (if $k$ is large enough). Note that, if $f^{\circ k}(z) \in \hat{U}$, then so does $f^{\circ k+1}(z)$, since $f$ maps $\hat{U}$ into itself.
+
+Suppose we choose $k$ minimal such that $f^{\circ k}(z) \in \hat{U}$. Then,
+
+$$
+\mid \phi\left(\left.f^{\circ k+1}(z)\right|^{\frac{1}{n^{k+1}}}=\left|\phi\left(f\left(f^{\circ k}(z)\right)\right)\right|^{\frac{1}{n^{k+1}}}=\left|\phi\left(f^{\circ k}(z)\right)^{n}\right|^{\frac{1}{n^{k+1}}}=\left|\phi\left(f^{\circ k}(z)\right)\right|^{\frac{1}{n^{k}}}=|\phi|(z) .\right.
+$$
+
+In the proof of the Bottcher's theorem, we saw that $\phi(z) \in \mathbb{D} \forall z \in \hat{U}$ Hence, $|\phi|(z)=$ $\left|\phi\left(f^{\circ k}(z)\right)\right|<1 \forall z \in \mathcal{A}$. Therefore, $|\phi|: \mathcal{A} \rightarrow[0,1)$.
+
+Also,
+
+$$
+\begin{aligned}
+|\phi|(f(z)) & =\mid \phi\left(\left.f^{\circ k}(f(z))\right|^{\frac{1}{n^{k}}}\right. \\
+& =\left|\phi\left(f\left(f^{\circ k}(z)\right)\right)\right|^{\frac{1}{n^{k}}} \\
+& =\left|\phi\left(f^{\circ k}(z)\right)^{n}\right|^{\frac{1}{n^{k}}} \\
+& =\left|\phi\left(f^{\circ k}(z)\right)\right|^{\frac{n}{n^{k}}} \\
+& =|\phi|(z)^{n} .
+\end{aligned}
+$$
+
+It is also clear that $|\phi|=0$ only at $p$ and its iterated preimages.
+
+If $q$ is an iterated preimage of $p$, say $f^{\circ k}(q)=p$, then we have $|\phi|(q)=\mid \phi\left(\left.f^{\circ k}(q)\right|^{\frac{1}{n^{k}}}=\right.$ $|\phi(p)|^{\frac{1}{n^{k}}}=0$
+
+Now, Suppose $|\phi|(z)=0$ for some $z$. Then, $|\phi|(z)^{n^{k}}=0 \forall k \Longrightarrow|\phi|\left(f^{\circ k}(z)\right)=0 \forall k$. But for some large $k, f^{\circ k}(z)$ belongs to the domain of definition of $\phi$. But that means, $f^{\circ k}(z)=p$, since no other point in that domain is mapped to zero by $\phi$. Hence, $z$ is an an iterated preimage of $p$.
+
+Now, since $f^{\circ k} \rightarrow p$ locally uniformly in $\mathcal{A}$, for each $a \in \mathcal{A}$, we have a neighbourhood $W_{a}$ and a constant $k \in \mathbb{N}$ such that $f^{\circ k}(z) \in \hat{U} \forall z \in W_{a}$.
+
+Hence, for $z \in W_{a}$, we can define $|\phi|(z)=\left|\phi\left(f^{\circ k}(z)\right)\right|=|g(z)|$, where $g=\left.\phi \circ f^{\circ k}\right|_{W_{a}}$. Therefore, $|\phi|_{W_{a}}=|g|$, where $g$ is some holomorphic function defined on $W_{a}$.
+
+It is clear from this that $|\phi|$ is continuous in $\mathcal{A}$.
+
+Now, if $h$ is any holomorphic function, then $|h(z)|$ is real-analytic everywhere in its domain except at those $z$, where $h(z)=0$.
+
+Since, $|g|=|\phi|_{W_{a}}$ is zero only at the iterated preimages of $f$ in $W_{a},|\phi|_{W_{a}}$ is real analytic everywhere in $W_{a}$ except at the iterated preimages of $p$.
+
+Therefore, $|\phi|$ is real analytic everywhere in $\mathcal{A}$ except at the iterated preimages of $p$. Let $f: \mathbb{C}_{\infty} \rightarrow \mathbb{C}_{\infty}$ be a rational map with a super-attracting fixed point $p$. Then the associated Bottcher map $\phi$ carries a neighbourhood of $p$ biholomorphically onto a neighbourhood of zero, conjugating $f$ to the $n$th power map, where $n$ is the local degree of $f$ near $p$. $\phi$ has a local inverse $\psi_{\epsilon}$ which maps the $\epsilon$-disc around zero to a neighbourhood of $p$.
+\end{proof}
+
+\begin{theorem}[\textbf{Extending $\psi_{\epsilon}$}] There exists a unique open disc of maximal radius $0<r \leq 1$ such that $\psi_{\epsilon}$ extends holomorphically to a map $\psi: \mathbb{D}_{r} \rightarrow \mathcal{A}$, where $\mathcal{A}$ is the immediate basin of attraction of $p$.
+
+\begin{enumerate}
+  \item If $r=1$, then $\psi$ maps the open unit disc $\mathbb{D}$ onto $\mathcal{A}$ biholomorphically.
+
+  \item If $0<r<1$, then $\psi$ maps $\mathbb{D}_{r}$ onto its image biholomorphically and there exists atleast one other critical point in $\mathcal{A}$ on the boundary of $\psi\left(\mathbb{D}_{r}\right)$.
+
+\end{enumerate}
+\end{theorem}
+
+If $\psi_{\epsilon}$ is extended biholomorphically in this way to the map $\psi$ defined on $\mathbb{D}_{r}$, then the inverse map $\psi^{-1}: \psi\left(\mathbb{D}_{r}\right) \rightarrow \mathbb{D}_{r}$ must be the extension of $\phi$ from some neighbourhood of $p$ to $\psi\left(\mathbb{D}_{r}\right)$ (since $\psi^{-1}$ agrees with $\phi$ on some neighbourhood of $p$ ).
+
+\begin{proof}
+Let us try to extend $\psi_{\epsilon}$ along radial lines by analytic continuation. Then, we can't extend it indefinitely as it would yeild a holomorphic map $\psi$ from the entire complex plane onto an open set $\psi(\mathbb{C}) \subset \mathcal{A} \varsubsetneqq \mathbb{C}_{\infty}$. $\left(\mathcal{A}\right.$ cannot be the whole of $\mathbb{C}_{\infty}$ since the Julia set of $f$ cannot be empty as $\operatorname{deg}(f) \geq 2$ ). We can conjugate $f$ such that $\infty \notin \mathcal{A}$. Then the corresponding map $\psi$ will map the whole of the complex plane into $\mathcal{A} \subset \mathbb{C}$. By Louiville's theorem, since the map $\psi$ cannot be a constant, $\psi(\mathbb{C})=\mathbb{C}=\mathcal{A}$. Therefore, $\mathbb{C}_{\infty} \backslash \mathcal{A}=\{\infty\}$. This too is not possible since the Julia set of $f$ must be an infinite set since $\operatorname{deg}(f) \geq 2$.
+
+Thus, there must be some largest radius $r$ so that $\psi_{\epsilon}$ extends analytically throughout the open disc $\mathbb{D}_{r}$.
+
+Also, $|\phi|(\psi(w))=|\phi(\psi(w))|=|w|$ near 0 , hence for all $w \in \mathbb{D}_{r}$ by analytic continuation.???
+
+Since, $|\phi|: \mathcal{A} \rightarrow[0,1)$, this proves that for any $w \in \mathbb{D}_{r},|\phi|(\psi(w))=|w|<1$. Therefore, $\psi$ can be defined only on $\mathbb{D}_{r}$ for $r \leq 1$.
+
+We will now show that $\psi$ is actually one-to-one on $\mathbb{D}_{r}$. Suppose $\psi\left(w_{1}\right)=\psi\left(w_{2}\right)$. Applying $|\phi|$, we see that $\left|w_{1}\right|=\left|w_{2}\right|$. Choose such a pair such that $\psi\left(w_{1}\right)=\psi\left(w_{2}\right)$ $\left(w_{1} \neq w_{2}\right)$ with $\left|w_{1}\right|=\left|w_{2}\right|$ minimal. A minimal pair exists because for $|w|<\epsilon, \psi=\psi_{\epsilon}$ which is one-to-one as it is invertible.
+
+Now, $\psi$ is an open mapping. Choose a sufficiently small neighbourhood $U_{w_{2}}$ of $w_{2}$. Then, $\psi\left(U_{w_{2}}\right)$ is a small neighbourhood of $\psi\left(w_{1}\right)=\psi\left(w_{2}\right)$. Hence, for any $w_{1}^{\prime}$ sufficiently close to $w_{1}, \psi\left(w_{1}^{\prime}\right) \in \psi\left(U_{w_{2}}\right)$. Hence, we can find $w_{2}^{\prime}$ sufficiently close to $w_{2}$ such that $\psi\left(w_{1}^{\prime}\right)=\psi\left(w_{2}^{\prime}\right)$. Choosing $\left|w_{1}^{\prime}\right|<\left|w_{1}\right|$, we get a contradiction.
+
+Hence, $\psi$ maps $\mathbb{D}_{r}$ onto its image biholomorphically.
+
+In case when $r=1, U=\psi(\mathbb{D})=\mathcal{A}$. If not then we would have some boundary point of $U$, say $z_{0} \in \mathcal{A}$. We can approximate $z_{0}$ by points of $\psi\left(w_{j}\right)$, where $\left|w_{j}\right| \rightarrow 1$.
+
+Now, $\lim _{j \rightarrow \infty} \psi\left(w_{j}\right)=z_{0}$. Hence,
+
+$$
+\lim _{j \rightarrow \infty}|\phi|\left(\psi\left(w_{j}\right)\right)=|\phi|\left(z_{0}\right) \Longrightarrow \lim _{j \rightarrow \infty}\left|w_{j}\right|=|\phi|\left(z_{0}\right) \Longrightarrow|\phi|\left(z_{0}\right)=1
+$$
+
+which is impossible.
+
+Now, let $0<r<1$. We need to prove that $\partial U$, where $U=\psi\left(\mathbb{D}_{r}\right)$ must contain a critical point of $f$. Suppose, $w_{0} \in \partial \mathbb{D}_{r}$ and let $\left(w_{j}\right)_{j=1}^{\infty} \subset \mathbb{D}_{r}$ such that $w_{j} \rightarrow w_{0}$. Let $\psi\left(w_{j}\right) \rightarrow z_{0}$. Then $z_{0} \in \partial U$ because $\psi$ maps $\mathbb{D}_{r}$ onto $U$ biholomorphically.
+
+If $z_{0}$ is not a critical point of $f$, then $f$ maps a neighbourhood of $z_{0}$, say $A$ onto a neighbourhood of $f\left(z_{0}\right)$, say $B$ biholomorphically.
+
+It should be noted that $B$ can be chosen such that $B \subset U$. This is because $f\left(z_{0}\right) \in U$. We have, $\lim _{j \rightarrow \infty} \psi\left(w_{j}\right)=z_{0} \Longrightarrow \lim _{j \rightarrow \infty} f\left(\psi\left(w_{j}\right)\right)=f\left(z_{0}\right) \Longrightarrow \lim _{j \rightarrow \infty} \psi\left(w_{j}^{n}\right)=$ $f\left(z_{0}\right) \Longrightarrow \psi\left(w_{0}^{n}\right)=f\left(z_{0}\right)$. Since, $\left|w_{0}\right|=r<1,\left|w_{0}\right|^{n}<r^{n}<r$. Hence, $w_{0} \in \mathbb{D}_{r}$. Therefore, $\psi\left(w_{0}^{n}\right)=f\left(z_{0}\right) \in U$
+
+Let $g$ be the local inverse of $f$ near $f\left(z_{0}\right)$. Then, $\psi$ can be extended throughout a neighbourhood of $w_{0}$ by
+
+$$
+w \mapsto g\left(\psi\left(w^{n}\right)\right)
+$$
+
+We have, $\psi\left(w_{0}^{n}\right)=f\left(z_{0}\right) \Longrightarrow w_{0}^{n}=\phi\left(f\left(z_{0}\right)\right)$. Since, $\phi(B)$ is a neighbourhood of $\phi\left(f\left(z_{0}\right)\right)$ lying inside $\mathbb{D}_{r}$, choose a small enough neighbourhood of $w_{0}$, say $C$ such that $w^{n} \in \phi(B)$, for all $w \in C$. In this neighbourhood, $C$ our newly defined map agrees with $\psi$ on $C \cap \mathbb{D}_{r}$. This is because, for $w \in C \cap \mathbb{D}_{r}, f(\psi(w))=\psi\left(w^{n}\right) \in B$. Therefore, $g\left(\psi\left(w^{n}\right)\right)$ can be defined and $\psi(w)=g\left(\psi\left(w^{n}\right)\right) \in A$. Hence, our new map is an analytic continuation of $\psi$ on the neighbourhood $C$.
+
+Now, if none of the $z_{0} \in \partial U$ are critical points, we can extend $\psi$ to a neighbourhood of $w_{0} \forall w_{0} \in \partial \mathbb{D}_{r}$. Clearly, these continutations would patch together to define $\psi$ in a strictly greater disc than $\mathbb{D}_{r}$, which is a contradiction.
+\end{proof}
