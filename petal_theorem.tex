@@ -19,6 +19,11 @@ is a rational number.
 	.\] 
 	\end{enumerate}
 \end{lemma}
+\begin{proof}
+	We have, \[
+		f(z) /z=1-z^p+\mathcal{O}(z^{p+1})
+	.\] 
+\end{proof}
 
 Before stating the \emph{Petal Theorem}, which discusses the
 behaviour of analytic functions near parabolic fixed points, we first define the notions
@@ -63,7 +68,7 @@ Suppose that an analytic map \( f \) has the form:\[
 \begin{figure}[ht]
     \centering
     \incfig{sigmamap}
-    \caption{$\sigma$ is a biholomorphism from $S$ onto $W$.}
+    \caption{$\sigma$ is a biholomorphism from $S_0$ onto $W$.}
     \label{sigmamap}
 \end{figure}
 
@@ -76,10 +81,37 @@ Suppose that an analytic map \( f \) has the form:\[
 		g(w)=\sigma f \sigma ^{-1}(w)=f(w^{-\frac{1}{p}})^{-p}
 	.\]
 
-	This just replaces the action of \( f \) on \( S \) by \( g \) on \( W \),
+	This just replaces the action of \( f \) on \( S_0 \) by \( g \) on \( W \),
 	and we have the following commutative diagram:
 
-	%TODO: add commutative diagram and solve for the estimates of g
+	Now, we will use the power series expansion of \( f \) near the origin to
+	get information about \( g \).\\
+	First let us try to get a estimate of the power series expansion of \( f(z)^{-p} \).
+	We have, \[
+		f(z)=z-z^{p+1}+\mathcal{O}(z^{2p+1})=z(1-z^p+\mathcal{O}(z^{2p}))=z(1-z^p-a_0z^{2p}-a_1z^{2p+1}+-\ldots)
+	.\] 
+	So, \[
+		\frac{1}{f(z)^p}=z^{-p}\left(\frac{1}{1-z^p-a_0z^{2p}-a_1z^{2p+1}+-\ldots}\right)^p
+	.\]  
+	Now, let \( \alpha(z)=z^p+a_0z^{2p}+a_1z^{2p+1}+\ldots \), 
+	then for \( r_0 \) small enough
+	such that \( |\alpha(z)|<1 \), we can write, \[
+		\frac{1}{1-\alpha(z)}=1+\alpha(z)+\alpha(z)^2+\ldots 
+	.\] 
+	Therefore,
+	\begin{align*}
+		\frac{1}{f(z)^p}&=z^{-p}(1+\alpha(z)+\alpha(z)^2+\ldots )^p\\
+						&=z^{-p}(1+pz^p+Az^{2p}+A_1z^{2p+1}+\ldots )\\
+						&=\frac{1}{z^p}+p+Az^p+v(z)
+	,\end{align*} where \( A \) is some constant and \( v(z) \) is holomorphic
+	on \( \{|z|< r_0\} \) for some small \( r_0>0 \),
+	and satisfies \( |v(z)| \le B|z|^{p+1} \), \( B>0 \).
+	Now, if \( w\in W \), then \( \sigma^{-1}(w)\in S \). Hence, by substituting \( z=\sigma^{-1}(w)=w^{-1/p} \), we have,
+	\begin{align*}
+		g(w)&=\sigma f\sigma^{-1}(w)\\
+			&=\frac{1}{f(w^{-1/p})^{p}}\\
+			&=w+p+A /w+\theta(w)
+		,\end{align*} where \( |\theta (w)|=|v(w^{-1/p})|\le B|w^{-1/p}|^{p+1}=B /|w|^{1+\frac{1}{p}} \).
 
 	\noindent Hence, we have the following estimates 
 	for \( g \) which will be crucial in everything that will follows:
@@ -107,7 +139,7 @@ Suppose that an analytic map \( f \) has the form:\[
 	\vspace{1pt}
 
 	\noindent \textbf{Claim.} \( \Pi \) is the conformal image of \( \Pi_0(t) \) under \( \sigma \) for a suitable \( t \).\\
-	The easiest way to see this is using polar coordinates. We write, \( z=re^{i\theta } \) for \( z\in S \) 
+	The easiest way to see this is using polar coordinates. We write, \( z=re^{i\theta } \) for \( z\in S_0 \) 
 	and \( w=\rho e^{i \phi } \) for \( w\in W \). Then, \( \rho=\frac{1}{r^p} \) and \( \phi=-p\theta  \).
 
 	\begin{figure}[ht]
