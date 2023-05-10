@@ -4,7 +4,7 @@ A point \( p \) is called a parabolic fixed point of \( f \)
 if \( f(p)=p \) and \( f'(p)=e^{2\pi i t} \), where \( t \)
 is a rational number.
 
-\begin{lemma}
+\begin{lemma}\label{lem2.1}
 	Suppose \( f \) is analytic and satisfies \[
 		f(z)=z-z^{p+1}+\mathcal{O}(z^{p+2})
 	\] in some neighbourhood \( N \) of the origin. Let \( \omega_1,\ldots ,\omega_p \) be the \( p \)-th
@@ -65,8 +65,7 @@ Suppose that an analytic map \( f \) has the form:\[
 	W=\{re^{i\theta }:r>\frac{1}{r_0^p},|\theta |>\pi\}
 	.\] 
 
-\begin{figure}[ht]
-    \centering
+\begin{figure}[ht] \centering
     \incfig{sigmamap}
     \caption{$\sigma$ is a biholomorphism from $S_0$ onto $W$.}
     \label{sigmamap}
@@ -95,7 +94,7 @@ Suppose that an analytic map \( f \) has the form:\[
 	.\]  
 	Now, let \( \alpha(z)=z^p+a_0z^{2p}+a_1z^{2p+1}+\ldots \), 
 	then for \( r_0 \) small enough
-	such that \( |\alpha(z)|<1 \), we can write, \[
+	such that \( |\alpha(z)|<1 \) on \( \{|z|<r_0\} \), we can write, \[
 		\frac{1}{1-\alpha(z)}=1+\alpha(z)+\alpha(z)^2+\ldots 
 	.\] 
 	Therefore,
@@ -104,8 +103,9 @@ Suppose that an analytic map \( f \) has the form:\[
 						&=z^{-p}(1+pz^p+Az^{2p}+A_1z^{2p+1}+\ldots )\\
 						&=\frac{1}{z^p}+p+Az^p+v(z)
 	,\end{align*} where \( A \) is some constant and \( v(z) \) is holomorphic
-	on \( \{|z|< r_0\} \) for some small \( r_0>0 \),
-	and satisfies \( |v(z)| \le B|z|^{p+1} \), \( B>0 \).
+	on \( \{|z|< r_0\} \), and for some small \( r_0>0 \),
+	it satisfies \( |v(z)| \le B|z|^{p+1} \), \( B>0 \).
+
 	Now, if \( w\in W \), then \( \sigma^{-1}(w)\in S \). Hence, by substituting \( z=\sigma^{-1}(w)=w^{-1/p} \), we have,
 	\begin{align*}
 		g(w)&=\sigma f\sigma^{-1}(w)\\
@@ -114,7 +114,7 @@ Suppose that an analytic map \( f \) has the form:\[
 		,\end{align*} where \( |\theta (w)|=|v(w^{-1/p})|\le B|w^{-1/p}|^{p+1}=B /|w|^{1+\frac{1}{p}} \).
 
 	\noindent Hence, we have the following estimates 
-	for \( g \) which will be crucial in everything that will follows:
+	for \( g \) which will be crucial in everything that will follow:
 	\begin{align}
 		g(w)&=w+p+A /w+\theta (w),\text{ where \( A \) is a constant and} \label{eqn3.1}\\
 		|\theta (w)|&\le B /|w|^{1+\frac{1}{p}}, B>0 \label{eqn3.2}
@@ -344,12 +344,88 @@ This shows that \( g:\Pi\to \Pi \) is conjugate to the map \( z\mapsto z+p \) of
 itself.
 \end{proof}
 
-Coming back to our original theorem, we see that since \( g \) maps \( \Pi \) into itself, \( f\)
-also maps each \( \Pi_k(t) \) into itself.
+Coming back to our original theorem, we see that our original theorem is also 
+proved as we had just replaced the action of \( f \) on \( \Pi_0 \) by the action of 
+its conjugate \( g \) on \( \Pi \) and we just proved all the parts of the theorem that
+the conjugate of \( f \), i.e. \( g \) must satisfy.
 
-Now since, \( |\gog[n](w)|>\sqrt{n}  \) for all \( w\in\Pi \), 
-\( |\sigma \fof[n]\sigma^{-1}(w)|\to \infty \)
-uniformly on \( \Pi \).
+From, \( g=\sigma f\sigma^{-1} \), we get,
+\( \gog[n]=\sigma \fof[n]\sigma^{-1}\implies\gog[n]\sigma= \sigma\fof[n]\). 
+Writing, \( \sigma(z)=w \), we have,
+\begin{align}
+	\gog[n](w)=\frac{1}{\fof[n](z)^p}\implies\gog[n](w)(\fof[n](z))^p=1\label{eqn8}
+.\end{align}
+\begin{enumerate}
+	\item Since, \( g \) maps \( \Pi \) into itself, \( f \) maps \( \Pi_0 \) into itself.
+	\item Now, since \( |\gog[n](w)|>\sqrt{n}  \), \( |\fof[n](z)|<\frac{1}{n^{1/2p}} \) from \Cref{eqn8}. Hence, \( \fof[n](z)\to 0 \) uniformly on \( \Pi_0 \).
+	\item Also, \( \arg(\fof[n](z))=\left(-\frac{1}{p}\right)\arg(\gog[n](w)) \) from \Cref{eqn8}. Since, \( \arg(\gog[n](w))\to 0 \) locally uniformly on \( \Pi \), \( \fof[n](z)=\left(-\frac{1}{p}\right)\arg(\gog[n](w))\to 0 \) locally uniformly on \( \Pi_0 \).
+	\item Since, \( g:\Pi\to \Pi \) is conjugate to a translation, and \( g \) is conjugate to \( f \), \( f:\Pi_0\to \Pi_0 \) is also conjugate to a translation.
+	\item It is immediate from \Cref{lem2.1} that \( |f(z)|<|z| \) on the axis of \( \Pi_0 \).
+\end{enumerate}
+
+\begin{theorem}
+	Suppose that \( f \) has the power series expansion near \( 0 \) as,\[
+		f(z)=z+az^{p+1}+\mathcal{O}(z^{p+2})
+	.\] Then, \( f \) is conjugate near \( 0 \) to a function \[
+	F(z)=z-z^{p+1}+\mathcal{O}(z^{2p+1})
+	.\] 
+\end{theorem}
+\begin{proof}
+	First, we conjugate \( f \) by the map \( z\mapsto \lambda z \), where \( \lambda^p=a \). Then, we get that \( f \) is conjugate to the map, \[ \tilde{f}=\lambda f(z /\lambda)=\lambda z /\lambda+\lambda a z^{p+1} /\lambda^{p+1}+\mathcal{O}(z^{p+2})=z+z^{p+1}+\mathcal{O}(z^{p+2}). \]
+	We will now proceed via induction over a finite number of steps. Let, \[
+		f_k(z)=z+z^{p+1}+bz^{p+k+1}+\ldots, b\neq 0 
+	.\] Here \( k\ge 1 \). Also if \( k\ge p \), our theorem is proved. Hence, we assume, \( 1\le k<p \).\\
+	Now, define the polynomial, \[
+	\sigma(z)=z+\alpha z^{k+1}
+	,\] where \( \alpha=\frac{b}{p-k} \) and let \( \sigma^{-1} \) be its inverse near \( 0 \) (We can do this because \( \sigma'(0)=1 \)). 
+
+	Now, we will show that we obtain \( f_r \) (for some \( r\ge k+1 \)) by conjugating 
+	\( f_k \) with \( \sigma \).
+	Hence, let \[
+		g=\sigma f_k\sigma^{-1}
+		\] and we need to show that \( g=f_r \) (for some \( r\ge k+1 \)). Since, \( g'(0)=f_k'(0)=1 \), we let, \[
+	g(z)=z+\sum_{m=2}^\infty a_mz^m
+	.\] 
+	Now, we will use the identity, \( g\sigma=\sigma f_k \).
+	\begin{align*}
+		\sigma f_k(z)&=(z+z^{p+1}+bz^{p+k+1}+\ldots )+\alpha(z+z^{p+1}+bz^{p+k+1})^{k+1}\\
+			   &=z+\alpha z^{k+1}+ z^{p+1}+(b+\alpha(k+1))z^{p+k+1}+\mathcal{O}(z^{p+k+2})\\
+			   &=z+\alpha z^{k+1}+ z^{p+1}+\alpha(p+1)z^{p+k+1}+\mathcal{O}(z^{p+k+2})
+	.\end{align*}
+	The last equality follows because, \[ \alpha(p-k)=b\implies \alpha(p+1)-\alpha(k+1)=b\implies\alpha(p+1)=b+\alpha(k+1). \]
+	Now,
+	\begin{align*}
+		g\sigma(z)&=(z+\alpha z^{k+1})+\sum_{m=2}^\infty a_m(z+\alpha z^{k+1})^m\\
+				  &=z+\alpha z^{k+1}+\sum_{m=2}^{p+k+1}a_m(z+\alpha z^{k+1})^m+\mathcal{O}(z^{p+k+2})
+	.\end{align*}
+	Now, equating \( \sigma f_k(z)=g\sigma(z) \), we get,
+	\begin{align*}
+		z^{p+1}+\alpha(p+1)z^{p+k+1}+\mathcal{O}(z^{p+k+2})=\sum_{m=2}^{p+k+1} a_m(z+\alpha z^{k+1})^m+\mathcal{O}(z^{p+k+2})
+	.\end{align*}
+	Firstly, we see that on the right hand side, the coefficient of \( z^2 \) will be \( a_2 \),
+	the coefficient of \( z^3 \) will be some linear combination of \( a_2 \) and \( a_3 \), the
+	coefficient of \( z^4 \) will be some linear combination of \( a_2,a_3 \) and \( a_4 \) and so on upto the coefficient of \( z^p \) will be some linear combination of \( a_2,a_3,\ldots a_p \).
+	Since, the coefficient of \( z^2,\ldots ,z^p \) is zero on the left hand side, it follows that \( a_2=a_3=\ldots, a_p=0 \). (This argument follows assuming \( p\ge 2 \), but if \( p=1 \) the coefficient of \( z^p=z \) i.e. \( a_1 \) is automatically \( 0 \)).
+
+	Hence, now we have,
+	\begin{align*}
+		z^{p+1}+\alpha(p+1)z^{p+k+1}+\mathcal{O}(z^{p+k+2})&=\sum_{m=p+1}^{p+k+1} a_m(z+\alpha z^{k+1})^m+\mathcal{O}(z^{p+k+2})\\
+														   &=a_{p+1}z^{p+1}+\ldots +a_{p+k+1}z^{p+k+1}+\\&\,\,\,a_{p+1}\alpha(p+1)z^{p+k+1}+\mathcal{O}(z^{p+k+2})
+	.\end{align*}
+	Therefore, we obtain \[
+		a_{p+1}=1,a_{p+2}=\ldots =a_{p+k}=0\text{ and }a_{p+k+1}+a_{p+1}\alpha(p+1)=\alpha(p+1)
+	.\] 
+	Hence, \( a_{p+k+1}=0 \). This gives that \( f_k \) is conjugate to the map \[
+		g(z)=z+z^{p+1}+\mathcal{O}(z^{p+k+2})
+	.\] 
+	Thus, \( g=f_r \) for some \( r\ge k+1 \). Continuing the induction process, we get that \( f \)
+	is conjugate near \( 0 \) to a map \[
+		z\mapsto z+z^{p+1}+\mathcal{O}(z^{2p+1})
+	.\] 
+	Now, we an again conjugate this map with the map, \( z\mapsto \lambda z \), where \( \lambda^p=-1 \) to get that \( f \) is conjugate to a map, \[
+		F(z)=z-z^{p+1}+\mathcal{O}(z^{2p+1})
+	.\] 
+\end{proof}
 
 \section{Behaviour near attracting fixed points}
 
