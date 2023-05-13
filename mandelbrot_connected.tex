@@ -1,7 +1,40 @@
 \chapter{Connectedness of the Mandelbrot Set}
 In the previous chapter, we proved that the Mandelbrot set is compact and \( \mathbb{C}\bs M \)
 is open and connected. In this chapter, we will prove that \( \Cinf\bs M \) is biholomorphic
-to the open unit disc, proving that it is simply connected, thus implying that \( M \) is connected by \Cref{thm1.1}.
+to \( \Cinf\bs \overline{\mathbb{D}}  \), proving that \( \Cinf\bs M \) is simply connected, thus implying that \( M \) is connected by \Cref{thm1.1}.
 
 \section{The Green's Function}
+From Bottcher's theorem, we know that near a super-attracting fixed point, an analytic map of local degree \( d \) 
+is locally conjugate to the map \( z\mapsto z^d \). Furthermore, if 
 
+\begin{theorem}
+	For a given \( c\in \mathbb{C} \), the set on which \( \phi_c \) is defined is given by \( S_c=\{z:G_c(z)>G_c(0)\} \)
+\end{theorem}
+
+\begin{theorem}
+	\( (z,c)\mapsto G_c(z) \) is continuous in two variables.
+\end{theorem}
+
+\begin{theorem}
+	The map, \( (z,c)\mapsto \Phi(z,c):= \phi_c(z) \) is analytic in two variables on the set \( \{(z,c):c\in \mathbb{C},G_c(z)>G_c(0)\} \) and \( \Phi(c,c) /c\to 1 \) as \( c\to \infty \).
+\end{theorem}
+
+\section{The Isomorphism by Douady and Hubbard}
+Douady and Hubbard proved that the Mandelbrot set is connected by defining an isomorphism \( \Psi:\mathbb{C}\bs M \to \mathbb{C}\bs \overline{\mathbb{D}}  \) given by, \[
+	\Psi(c)=\Phi(c,c)=\phi_c(c)
+.\] 
+To prove that it is indeed an isomorphism, we will proceed in the following steps:
+\begin{enumerate}
+	\item \( \Psi \) is a well defined map: For \( c\in \mathbb{C}\bs M \), \( G_c(c)=2G_c(0)>G_c(0) \). Thus, \( c\in S_c \) and \( \phi_c(c) \) can be defined. Also, \( |\phi_c(c)|>1 \).
+	\item \( \Psi \) is analytic: We already proved that \( (z,c)\mapsto \Phi(z,c) \) is analytic in two
+		variables. Hence the map \( c\mapsto (c,c)\mapsto \Phi(c,c) \) is analytic.
+	\item \( |\Psi(c_n)|\to 1 \) as \( c_n\to M \): This is due to the continuity of \( (z,c)\mapsto G_c(z) \) in two variables. Hence, \( c\mapsto (c,c)\mapsto G_c(c) \) is continuous. Hence, as \( c_n\to c_0\in M \), \( G_{c_n}(c_n)\to G_{c_0}(c_0)=0 \). Hence, \( \log |\phi_{c_n}|(c_n) = \log |\phi_{c_n}(c_n)|\to 0\implies|\phi_{c_n}(c_n)|\to 1  \).
+	\item \( \Psi \) can be extended to an analytic map \( \Psi:\Cinf\bs M\to \Cinf\bs \overline{\mathbb{D}}  \) by definiing \( \Psi(\infty)=\infty \): This is due to the fact that \( \Psi(c) /c=\Phi(c,c) /c\to 1 \) as \( c\to \infty \).
+	\item This extension is a proper map: Let \( K \) be a compact subset of \( \Cinf\bs \overline{\mathbb{D}}  \). Clearly, \( \Psi^{-1}(K) \) is a closed subset of \( \Cinf\bs M \). If \( \Psi^{-1}(K) \) is not compact, there is a sequence, \( (c_n)_{n=1}^\infty\subset \Psi^{-1}(K) \) such that \( c_n\to M \). This implies \( |\Psi(c_n)|\to 1 \) by point 3. This is not possible as \( K \) being a compact subset of \( \Cinf\bs\overline{\mathbb{D}} \) is at a positive distance from \( \mathbb{D} \).
+	\item Now, \( \Psi \) being a proper holomorphic map, it is a branched covering of some degree \( d \).
+		As \( \Psi^{-1}(\infty)=\{\infty\} \) with multiplicity \( 1 \) (because \( \Psi(c) /c\to 1 \)
+		as \( c\to \infty \)), \( d=1 \).
+\end{enumerate}
+Therefore, \( \Psi:\Cinf\bs M\to \Cinf\bs \overline{\mathbb{D}}  \) is an isomorphism and \( M \)
+is connected. Consecutively, \( \Psi:\mathbb{C}\bs M\to \mathbb{C}\bs \overline{\mathbb{D}}  \) is 
+also an isomorphism.

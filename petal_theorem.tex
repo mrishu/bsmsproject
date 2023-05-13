@@ -1,5 +1,4 @@
-\chapter{Behaviour of analytic functions near fixed points}
-\section{Behaviour near parabolic fixed points}
+\chapter{Petal Theorem}
 A point \( p \) is called a parabolic fixed point of \( f \)
 if \( f(p)=p \) and \( f'(p)=e^{2\pi i t} \), where \( t \)
 is a rational number.
@@ -30,6 +29,7 @@ is a rational number.
 		S_0=\{z\in \mathbb{C}:|z|<r_0^p;|\arg(z)|<p\theta_0\}\subset S
 	.\] And, \( |z^p-z^p(1+g(z))|=|z|^p |g(z)|\le M|z|^{p+1}=M(|z|^p)^{1+\frac{1}{p}} \). Hence,
 	for any \( w\in S_0 \), the perturbation of any point is \( \le M|w|^{1+1/p} \).
+	% TODO: Complete the proof of theorem for repelling and attracting sectors for parabolic fixed point
 
 \end{proof}
 
@@ -432,16 +432,13 @@ Writing, \( \sigma(z)=w \), we have,
 		F(z)=z-z^{p+1}+\mathcal{O}(z^{2p+1})
 	.\] 
 \end{proof}
-At the end we consider the most general situation, i.e. when \[
-	f(z)=az+bz^{p+1}+\ldots,\text{ where \( a\neq 1 \) but \( a=e^{2 \pi i p/q} \)}
-.\]  In this case, \( \fof[q](z) \) is of the form, \[
-\fof[q](z)=z+cz^{r+1}+\ldots 
-,\] for some \( r\in  \mathbb{N} \). Then \( \fof[q] \)
-has \( r \) petals at the origin.
-
-\section{Behaviour near attracting fixed points}
-
-\section{Behaviour near super-attracting fixed points}
-We will study the behaviour of analytic maps near super-attracting fixed
-points in the next chapter under Bottcher's theorem.
-
+\noindent At the end we consider the most general situation, i.e. when \( R \)
+is a rational function and
+\[
+	R(z)=az+bz^{p+1}+\ldots,\text{ where \( a\neq 1 \) but \( a=e^{2 \pi i p/q} \)}
+.\]  
+In this case, \( \ror[q](z) \) is of the form, \[
+	\ror[q](z)=z+cz^{r+1}+\ldots,\text{ for some } r \in \mathbb{N}
+.\] 
+Then \( \ror[q] \) has \( r \) petals at the origin. Now, \( F(\ror[q])=F(R) \).
+% TODO: Complete the most general form of petal theorem.

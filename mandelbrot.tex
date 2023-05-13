@@ -1,10 +1,18 @@
 \chapter{Introduction to the Mandelbrot Set}
 We consider the set of quadratic polynomials \( \{f_c(z)=z^2+c:c\in \mathbb{C}\} \). It is
-enough to consider this set because every quadratic polynomial is conjugate to a quadratic
+enough to consider this set because every quadratic polynomial is linearly conjugate to a quadratic
 polynomial of the type \( f_c(z) \) for some unique \( c\in \mathbb{C} \).
 
-To prove this, let \( f(z)=az^2+bz+c \), \( a\neq 0 \). And consider the conjugation, \( \sigma(z)= \)
-% TODO: Prove this
+To prove this, let \( f(z)=pz^2+qz+r \), \( p\neq 0 \). Consider the conjugation with
+the map, \( \sigma(z)=az+b \) with \( a=p \) and \( b=q /2 \). Then, we have
+\begin{align*}
+	\sigma f \sigma^{-1}(z)&=a\left(p\left(\frac{z-b}{a}\right)^2+q\left( \frac{z-b}{a}\right) +r  \right)+b\\
+						   &=(z-b)^2+q(z-b)+ar+b\\
+						   &=z^2+b^2-qb+ar+b\\
+						   &=z^2+q^2 /4-q^2 /2+pr+q /2\\
+						   &=z^2+(pr+q /2-q^2 /4)
+.\end{align*}
+This is of the form \( z^2+c \) for \( c=pr+q /2-q^2 /4 \).
 
 \section{Definition of the Mandelbrot Set}
 First, we define as new type of set, known as the \emph{Filled-in Julia Set} for a polynomial \( P \).
@@ -128,7 +136,7 @@ as \( -2\in M \). The orbit of \( 0 \) under the map \( z\mapsto z^2-2 \) is: \[
 and hence is bounded.
 
 \begin{theorem}
-	The Mandelbrot set, \( M \) is compact and \( \Cinf\bs M \) is open and connected.
+	The Mandelbrot set \( M \) is compact and \( \Cinf\bs M \) is open and connected.
 \end{theorem}
 \begin{proof}
 	Let, \( c_n=\fcof[n](c)=Q_n(c) \) be a polynomial in \( c \). Clearly, from \Cref{thm4.1} \[

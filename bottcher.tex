@@ -1,10 +1,9 @@
 \chapter{Bottcher's Theorem and its extension}
 \section{Bottcher's Coordinates}
-A fixed point $z_{0}$ is called a super-attracting fixed point of $f$ if $f^{\prime}\left(z_{0}\right)=0$.
+A fixed point $p$ is called a super-attracting fixed point of $f$ if $f^{\prime}\left(p\right)=0$.\\
+If $p$ is a super-attracting fixed point for $f$, we can conjugate the map such that $z=0$ becomes our super-attracting fixed point.
 
-If $z_{0}$ is a super-attracting fixed point for $f$, we can conjugate the map such that $z=0$ becomes our super-attracting fixed point.
-
-Thus, our map takes the form $f(z)=a_{n} z^{n}+a_{n+1} z^{n+1}+\ldots$ in a neighbourhood of 0 , with $n \geq 2$ and $a_{n} \neq 0$, where the integer $n$ is called the local degree.
+Thus, our map takes the form $$f(z)=a_{n} z^{n}+a_{n+1} z^{n+1}+\ldots$$ in a neighbourhood of 0 , with $n \geq 2$ and $a_{n} \neq 0$. Here the integer $n$ is called the \emph{local degree} of \( f \) at \( 0 \).
 
 \begin{theorem}[\textbf{Bottcher's Theorem}]
 	With $f$ as above, $\exists$ a local holomorphic change of coordinates $w=\phi(z)$, with $\phi(0)=0$, which conjugates $f$ to $w \mapsto w^{n}$ throughout some neighbourhood of 0 .\\
@@ -12,33 +11,23 @@ Furthermore, $\phi$ is unique upto multiplication by an $(n-1)$ th root of unity
 \end{theorem}
 
 \begin{proof}
-	\textbf{Existence.} Let $c \in \mathbb{C}$ be such that $c^{n-1}=a_{n}$. Then, the linearly conjugate map $c f(z / c)$ will have leading coefficient +1 . Thus, without loss of generality, we will assume that our map $f$ has the form $f(z)=z^{n}\left(1+b_{1} z+b_{2} z^{2}+\ldots\right)=z^{n}(1+\eta(z))$, where $\eta(z)=\left(1+b_{1} z+b_{2} z^{2}+\ldots\right)$.
-
+	\textbf{Existence.} Let $c \in \mathbb{C}$ be such that $c^{n-1}=a_{n}$. Then, the linearly conjugate map $c f(z / c)$ will have leading coefficient +1 . Thus, without loss of generality, we will assume that our map $f$ has the form $$f(z)=z^{n}(1+b_{1} z+b_{2} z^{2}+\ldots)=z^{n}(1+\eta(z)), \text{ where }\eta(z)=\left(1+b_{1} z+b_{2} z^{2}+\ldots\right).$$
 Choose $r \in\left(0, \frac{1}{2}\right)$ such that $|\eta(z)|<\frac{1}{2} \forall z \in \mathbb{D}_{r}$. This can be done since $\eta(0)=0$ and $\eta$ is continuous.
 
-On this disc, we have two properties of $f$ :
-
+\noindent On this disc, we have two properties of $f$ :
 \begin{enumerate}
   \item $f$ maps this disc into itself:
-\end{enumerate}
-
-We have, $|f(z)|=\left|z^{n}\right||1+\eta(z)| \leq|z|^{n}(1+|\eta(z)|)<\frac{3}{2}|z|^{n} \leq \frac{3}{2^{n}}|z| \leq \frac{3}{4}|z| \forall z \in \mathbb{D}_{r}$. Here we are using the fact that $n \geq 2,|z|<\frac{1}{2}$ and $|\eta(z)|<\frac{1}{2}$ on $\mathbb{D}_{r}$.
-
-\begin{enumerate}
-  \setcounter{enumi}{1}
-  \item $f(z) \neq 0 \forall z \in \mathbb{D}_{r} \backslash\{0\}.$
-\end{enumerate}
-
+	We have, $|f(z)|=\left|z^{n}\right||1+\eta(z)| \leq|z|^{n}(1+|\eta(z)|)<\frac{3}{2}|z|^{n} \leq \frac{3}{2^{n}}|z| \leq \frac{3}{4}|z| \forall z \in \mathbb{D}_{r}$. Here we are using the fact that $n \geq 2,|z|<\frac{1}{2}$ and $|\eta(z)|<\frac{1}{2}$ on $\mathbb{D}_{r}$.
+  \item $f(z) \neq 0\,\, \forall z \in \mathbb{D}_{r} \backslash\{0\}.$
 This is simply because $|f(z)|=|z|^{n}|1+\eta(z)|$ and since $|\eta(z)|<\frac{1}{2}$ on $\mathbb{D}_{r}$, we can't have $\eta(z)=-1$.
+\end{enumerate}
 
-The k-th iterate of $f$ i.e. $f^{\circ k}$ also maps the $\mathbb{D}_{r}$ into itself and $f^{\circ k}(z) \neq 0$ on $\mathbb{D}_{r} \backslash\{0\}$. Inductively, it can be shown that it has the form $f^{\circ k}(z)=z^{n^{k}}\left(1+n^{k-1} b_{1} z+\ldots\right)$.
+\noindent The k-th iterate of $f$ i.e. $f^{\circ k}$ also maps the $\mathbb{D}_{r}$ into itself and $f^{\circ k}(z) \neq 0$ on $\mathbb{D}_{r} \backslash\{0\}$. Inductively, it can be shown that it has the form $f^{\circ k}(z)=z^{n^{k}}\left(1+n^{k-1} b_{1} z+\ldots\right)$.
 
 The idea of the proof is to set,
-
 $$
 \phi_{k}(z)=\left(f^{\circ k}(z)\right)^{\frac{1}{n^{k}}}=z\left(1+n^{k-1} b_{1} z+\ldots\right)^{\frac{1}{n^{k}}}
 $$
-
 We choose $z$ as our branch of holomorphic $n^{k}$ th root of $z^{n^{k}}$.
 
 Now, we can choose a holomorphic branch of $\left(1+n^{k-1} b_{1} z+\ldots\right)^{\frac{1}{n^{k}}}$ on $\mathbb{D}_{r}$ since $\mathbb{D}_{r}$ is simply connected and $\left(1+n^{k-1} b_{1} z+\ldots\right) \neq 0$ on $\mathbb{D}_{r}$ since $f^{\circ k}(z) \neq 0$ on $\mathbb{D}_{r} \backslash\{0\}$. Therefore we set,
