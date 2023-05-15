@@ -4,20 +4,32 @@ is open and connected. In this chapter, we will prove that \( \Cinf\bs M \) is b
 to \( \Cinf\bs \overline{\mathbb{D}}  \), proving that \( \Cinf\bs M \) is simply connected, thus implying that \( M \) is connected by \Cref{thm1.1}.
 
 \section{The Green's Function}
-From Bottcher's theorem, we know that near a super-attracting fixed point, an analytic map of local degree \( d \) 
-is locally conjugate to the map \( z\mapsto z^d \). Furthermore, if 
+From Bottcher's theorem, we know that near a super-attracting fixed point \( \alpha \), an analytic map, \( f \) of local degree \( d \) is locally conjugate to the map \( z\mapsto z^d \)
+via the Bottcher's map \( \phi \). Furthermore, the Bottcher's map \( \phi \)
+can be extended throughout the whole of the immediate basin of attraction of the super-attracting fixed point \( \alpha \), say \( F_\alpha \) if there are no critical points in the basin and \( \phi(F_\alpha)=\mathbb{D} \). If there are critical points in \( F_\alpha \), then the Bottcher's map can be extended to a set, \( U \) such that \( \phi(U)=\mathbb{D}_r \) for some \( r<1 \) and \( \partial U \) contains some other critical point of \( f \).
+
+For polynomials, \( f_c \), we take the super-attracting fixed point \( \infty \) and the Bottcher's map \( \phi_c=\frac{1}{\phi} \). In this way, we get that, \( f_c \) is conjugate to the map \( z\mapsto z^2 \) in a neighbourhood of \( \infty \). Furthermore, we see that if \( c\in M \), the only other critical point \( 0\not\in F_c=F_\infty(f_c)\). Thus, \( \phi_c \) can be extended to the whole of \( F_c \) and \( \phi_c(F_c)=\mathbb{C}\bs \overline{\mathbb{D}}  \).
+
+% We define, \[
+% 	G_c(z)=
+% 	\begin{cases*}
+% 		\log |\phi _c|(z), &\text{ if } z\in F_c\\
+% 		0, &\text{ if } z\in K_c
+% 	\end{cases*}
+% .\] 
 
 \begin{theorem}
-	For a given \( c\in \mathbb{C} \), the set on which \( \phi_c \) is defined is given by \( S_c=\{z:G_c(z)>G_c(0)\} \)
+	For a given \( c\in \mathbb{C} \), the set on which \( \phi_c \) is defined is given by \( S_c=\{z\in \Cinf:G_c(z)>G_c(0)\} \)
+\end{theorem}
+
+\begin{theorem}
+	The map, \( (z,c)\mapsto \Phi(z,c):= \phi_c(z) \) is analytic in two variables on the set \( \{(z,c)\in \Cinf\times \mathbb{C}:G_c(z)>G_c(0)\} \) and \( \Phi(c,c) /c\to 1 \) as \( c\to \infty \).
 \end{theorem}
 
 \begin{theorem}
 	\( (z,c)\mapsto G_c(z) \) is continuous in two variables.
 \end{theorem}
 
-\begin{theorem}
-	The map, \( (z,c)\mapsto \Phi(z,c):= \phi_c(z) \) is analytic in two variables on the set \( \{(z,c):c\in \mathbb{C},G_c(z)>G_c(0)\} \) and \( \Phi(c,c) /c\to 1 \) as \( c\to \infty \).
-\end{theorem}
 
 \section{The Isomorphism by Douady and Hubbard}
 Douady and Hubbard proved that the Mandelbrot set is connected by defining an isomorphism \( \Psi:\mathbb{C}\bs M \to \mathbb{C}\bs \overline{\mathbb{D}}  \) given by, \[
