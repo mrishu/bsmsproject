@@ -153,7 +153,7 @@ Also,
 
 $$
 \begin{aligned}
-|\phi|(f(z)) & =\mid \phi\left(\left.f^{\circ k}(f(z))\right|^{\frac{1}{n^{k}}}\right. \\
+|\phi|(f(z)) & =\left| \phi\left(\left.f^{\circ k}(f(z))\right)\right|^{\frac{1}{n^{k}}}\right. \\
 & =\left|\phi\left(f\left(f^{\circ k}(z)\right)\right)\right|^{\frac{1}{n^{k}}} \\
 & =\left|\phi\left(f^{\circ k}(z)\right)^{n}\right|^{\frac{1}{n^{k}}} \\
 & =\left|\phi\left(f^{\circ k}(z)\right)\right|^{\frac{n}{n^{k}}} \\
@@ -163,7 +163,7 @@ $$
 
 It is also clear that $|\phi|=0$ only at $p$ and its iterated preimages.
 
-If $q$ is an iterated preimage of $p$, say $f^{\circ k}(q)=p$, then we have $|\phi|(q)=\mid \phi\left(\left.f^{\circ k}(q)\right|^{\frac{1}{n^{k}}}=\right.$ $|\phi(p)|^{\frac{1}{n^{k}}}=0$
+If $q$ is an iterated preimage of $p$, say $f^{\circ k}(q)=p$, then we have $|\phi|(q)=\left|\phi\left(f^{\circ k}(q)\right)\right|^{\frac{1}{n^{k}}}=|\phi(p)|^{\frac{1}{n^{k}}}=0$.
 
 Now, Suppose $|\phi|(z)=0$ for some $z$. Then, $|\phi|(z)^{n^{k}}=0 \forall k \Longrightarrow|\phi|\left(f^{\circ k}(z)\right)=0 \forall k$. But for some large $k, f^{\circ k}(z)$ belongs to the domain of definition of $\phi$. But that means, $f^{\circ k}(z)=p$, since no other point in that domain is mapped to zero by $\phi$. Hence, $z$ is an an iterated preimage of $p$.
 
@@ -193,7 +193,7 @@ Therefore, $|\phi|$ is real analytic everywhere in $\mathcal{A}$ except at the i
 If $\psi_{\epsilon}$ is extended biholomorphically in this way to the map $\psi$ defined on $\mathbb{D}_{r}$, then the inverse map $\psi^{-1}: \psi\left(\mathbb{D}_{r}\right) \rightarrow \mathbb{D}_{r}$ must be the extension of $\phi$ from some neighbourhood of $p$ to $\psi\left(\mathbb{D}_{r}\right)$ (since $\psi^{-1}$ agrees with $\phi$ on some neighbourhood of $p$ ).
 
 \begin{proof}
-Let us try to extend $\psi_{\epsilon}$ along radial lines by analytic continuation. Then, we can't extend it indefinitely as it would yeild a holomorphic map $\psi$ from the entire complex plane onto an open set $\psi(\mathbb{C}) \subset \mathcal{A} \varsubsetneqq \mathbb{C}_{\infty}$. $\left(\mathcal{A}\right.$ cannot be the whole of $\mathbb{C}_{\infty}$ since the Julia set of $f$ cannot be empty as $\operatorname{deg}(f) \geq 2$ ). We can conjugate $f$ such that $\infty \notin \mathcal{A}$. Then the corresponding map $\psi$ will map the whole of the complex plane into $\mathcal{A} \subset \mathbb{C}$. By Louiville's theorem, since the map $\psi$ cannot be a constant, $\psi(\mathbb{C})=\mathbb{C}=\mathcal{A}$. Therefore, $\mathbb{C}_{\infty} \backslash \mathcal{A}=\{\infty\}$. This too is not possible since the Julia set of $f$ must be an infinite set since $\operatorname{deg}(f) \geq 2$.
+Let us try to extend $\psi_{\epsilon}$ along radial lines by analytic continuation. Then, we can't extend it indefinitely as it would yeild a holomorphic map $\psi$ from the entire complex plane onto an open set $\psi(\mathbb{C}) \subset \mathcal{A} \varsubsetneq \mathbb{C}_{\infty}$. $\left(\mathcal{A}\right.$ cannot be the whole of $\mathbb{C}_{\infty}$ since the Julia set of $f$ cannot be empty as $\operatorname{deg}(f) \geq 2$ ). We can conjugate $f$ such that $\infty \notin \mathcal{A}$. Then the corresponding map $\psi$ will map the whole of the complex plane into $\mathcal{A} \subset \mathbb{C}$. By Louiville's theorem, since the map $\psi$ cannot be a constant, $\psi(\mathbb{C})=\mathbb{C}=\mathcal{A}$. Therefore, $\mathbb{C}_{\infty} \backslash \mathcal{A}=\{\infty\}$. This too is not possible since the Julia set of $f$ must be an infinite set since $\operatorname{deg}(f) \geq 2$.
 
 Thus, there must be some largest radius $r$ so that $\psi_{\epsilon}$ extends analytically throughout the open disc $\mathbb{D}_{r}$.
 

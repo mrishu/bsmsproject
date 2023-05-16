@@ -3,33 +3,137 @@ In the previous chapter, we proved that the Mandelbrot set is compact and \( \ma
 is open and connected. In this chapter, we will prove that \( \Cinf\bs M \) is biholomorphic
 to \( \Cinf\bs \overline{\mathbb{D}}  \), proving that \( \Cinf\bs M \) is simply connected, thus implying that \( M \) is connected by \Cref{thm1.1}.
 
+For \( f_c(z)=z^2+c\), Bottcher's theorem and its extension
+guarantees the existence of a unique biholomorphic function 
+\( \phi_c \) defined on a
+simply-connected neighbourhood of infinity, say \( U_c \subseteq F_c\)
+(where \( F_c \) is the basin of attraction of the
+super-attracting fixed point \( \infty \)), which
+conjugates \( f_c \) to the map \( z\mapsto z^2 \) and 
+\( \phi_c(z) /z \to 1 \) as \( z\to \infty \).\\
+Furthermore, if \(c\in M \), then \( U_c=F_c \) and 
+\( \phi_c(U_c)=\mathbb{C} \bs \overline{\mathbb{D}}  \).\\
+If \( c\not\in M \), then \( U_c\subsetneq F_c \),
+\( \partial U_c \) contains the critical point \( 0 \) and
+\( \phi_c(U_c)=\mathbb{C}\bs \overline{\mathbb{D}}_r  \), where \( r>1 \).
+
 \section{The Green's Function}
-From Bottcher's theorem, we know that near a super-attracting fixed point \( \alpha \), an analytic map, \( f \) of local degree \( d \) is locally conjugate to the map \( z\mapsto z^d \)
-via the Bottcher's map \( \phi \). Furthermore, the Bottcher's map \( \phi \)
-can be extended throughout the whole of the immediate basin of attraction of the super-attracting fixed point \( \alpha \), say \( F_\alpha \) if there are no critical points in the basin and \( \phi(F_\alpha)=\mathbb{D} \). If there are critical points in \( F_\alpha \), then the Bottcher's map can be extended to a set, \( U \) such that \( \phi(U)=\mathbb{D}_r \) for some \( r<1 \) and \( \partial U \) contains some other critical point of \( f \).
+\begin{definition}[\textbf{Green's Function}]
+	A continuous function \( G:\mathbb{C}\to \mathbb{R} \) is called the 
+	potential theoretical Green's function of a compact set \( K\subset \mathbb{C} \), 
+	if \( G \) is harmonic outside \( K \), vanishing on \( K \) and has the property 
+	that \( G(z) /\log |z|\to 1 \) as \( |z|\to \infty \).
+\end{definition}
 
-For polynomials, \( f_c \), we take the super-attracting fixed point \( \infty \) and the Bottcher's map \( \phi_c=\frac{1}{\phi} \). In this way, we get that, \( f_c \) is conjugate to the map \( z\mapsto z^2 \) in a neighbourhood of \( \infty \). Furthermore, we see that if \( c\in M \), the only other critical point \( 0\not\in F_c=F_\infty(f_c)\). Thus, \( \phi_c \) can be extended to the whole of \( F_c \) and \( \phi_c(F_c)=\mathbb{C}\bs \overline{\mathbb{D}}  \).
+\noindent We know that \( z\mapsto |\phi_c(z)| \) can be extended to
+a continuous function \( |\phi_c|:F_c\to (1,\infty) \).
+(Note that since for polynomials, \( P^{-1}(\infty)=\{\infty\} \),
+\( |\phi_c| \) is finite everywhere on \( F_c \)).\\
+In practice, it is customary to work with the logarithm of \( |\phi_c| \).
+Hence define, \[
+   	G_c(z) =
+   \begin{cases}
+		\log |\phi_c|(z) & \text{if } z \in F_c\\
+   	0 & \text{if } z \in K_c.
+   \end{cases}
+\]
+Clearly, \( G_c:\mathbb{C}\to [0,\infty) \) and \( G_c(z)>0 \) on \( F_c \) as \( |\phi_c| >1 \) on \( F_c \).
+Also, note that \( G \) satisfies the functional equation, \( G_c(f(z))=2G_c(z) \). Also, it can be proven that \( G_c \) is harmonic on \( F_c \) and hence, \( G_c \) is indeed the Green's function for \( K_c \).
 
-% We define, \[
-% 	G_c(z)=
-% 	\begin{cases*}
-% 		\log |\phi _c|(z), &\text{ if } z\in F_c\\
-% 		0, &\text{ if } z\in K_c
-% 	\end{cases*}
-% .\] 
+\noindent Now,
+\begin{itemize}
+	\item If \( c\in M \), then \( U_c=F_c \). Since \( G_c(z)>0 \)
+		for all \( z\in F_c \) and \( G_c(0)=0 \) as \( 0\in K_c \),
+		we can say that \( U_c=F_c=\{z\in \mathbb{C}:G_c(z)>G_c(0)=0\} \).
+	\item If \( c\not\in M \), the \( U_c \subsetneq F_c \). From the maximum principle,
+		it is easy to see that minimum of \( |\phi_c| \) on \( \overline{U_c} \) lies of on \( \partial U_c \).
+   	But, \( |\phi_c|(\partial U_c)=r=\text{constant} \) and since, \( 0\in \partial U_c \), we have \( |\phi_c|(z)>|\phi_c|(0) \)
+		for all \( z \in  U_c \). Therefore, \( U_c=\{z\in \mathbb{C}:G_c(z)>G_c(0)\} \).
+\end{itemize}
+Therefore, \( U_c=\{z\in \mathbb{C}:G_c(z)>G_c(0)\} \).
+\begin{lemma}
+	The map \( (z,c)\mapsto G_c(z) \) is jointly continuous in two variables on \( \mathbb{C}^2 \).
+\end{lemma}
 
-\begin{theorem}
-	For a given \( c\in \mathbb{C} \), the set on which \( \phi_c \) is defined is given by \( S_c=\{z\in \Cinf:G_c(z)>G_c(0)\} \)
-\end{theorem}
+\begin{lemma}
+	The map \( \Phi(z,c)= \phi_c(z) \) is holomorphic in 
+	two variables on the set \( S=\{(z,c): c\in \mathbb{C}\bs M, G_c(z)>G_c(0)\} \)
+	and \( \Phi(c,c) /c \to 1 \) as \( c\to \infty \).
+\end{lemma}
+\begin{proof}
+	First we note that \( S \) is an open set in \( \mathbb{C}^2 \). This is due to the map
+	\( (z,c)\mapsto G_c(z) \) being jointly continuous.
+	For a map to be holomorphic in two variables, it should be holomorphic in each variable
+	when the other variable is kept fixed.
 
-\begin{theorem}
-	The map, \( (z,c)\mapsto \Phi(z,c):= \phi_c(z) \) is analytic in two variables on the set \( \{(z,c)\in \Cinf\times \mathbb{C}:G_c(z)>G_c(0)\} \) and \( \Phi(c,c) /c\to 1 \) as \( c\to \infty \).
-\end{theorem}
+Now, we already know that for a fixed \( c\in \mathbb{C}\bs M  \), the map \( z\mapsto \phi_c(z) \)
+is holomorophic on \( \{z\in \mathbb{C}:G_c(z)>G_c(0)\} \).
+But, we still need to prove that for a fixed \( z \), the map \( c\mapsto \phi_c(z) \)
+is holomorphic on the ``\( z \)-slice'' of \( S \), i.e. \( S_{z}=\{c\in \mathbb{C}\bs M:G_c(z)>G_c(0)\} \).\\
+We define, \( \Phi_n(z,c)=\phi_{c,n}(z)=(f_c^{\circ n}(z))^{\frac{1}{2^n}} \), where \( \phi_{c,n} \)
+are as defined in the proof of the Bottcher's theorem.\\
+(In the proof of Bottcher's theorem, we had defined
+\( \phi_n(z)=(f^{\circ n}(z))^{\frac{1}{2^n}} \) in a neighbourhood of the super-attracting fixed point. Here, we are defining an 
+analytic \( 2^n \)-th root \( f_c^{\circ n} \) throughout \( U_c \) (which is simply connected), which agrees with \( \phi_n \)
+defined on the neighbourhood of the super-attracting fixed point.)
 
-\begin{theorem}
-	\( (z,c)\mapsto G_c(z) \) is continuous in two variables.
-\end{theorem}
+\noindent We write, \[
+\Phi_n(z,c)=z\prod_{k=0}^{n-1} \frac{\Phi_{k+1}(z,c)}{\Phi_k(z,c)}
+.\]
+Now, \[
+	\frac{\Phi_{n+1}(z,c)}{\Phi_n(z,c)}=\left(\frac{f_c^{\circ n+1}(z)}{(f_c^{\circ n}(z))^2}\right)^{\frac{1}{2^{n+1}}}=\
+\left(1+\frac{c}{(f_c^{\circ n}(z))^2}\right)^{\frac{1}{2^{n+1}}}
+.\] 
+and we write \( \Phi \) as the infinite product, \[
+\Phi(z,c)=z\prod_{n=0}^{\infty} \frac{\Phi_{n+1}(z,c)}{\Phi_n(z,c)} =z \prod_{n=0}^{\infty} \left(1+\frac{c}{(f_c^{\circ n}(z))^2}\right)^{\frac{1}{2^{n+1}}}
+.\] 
+By Weierstrass Factorization Theorem (Conway Pg. 167), if \( (f_n)_{n=1}^{\infty} \) is a sequence of analytic functions on \( G \subset \mathbb{C} \)
+then \( \prod_{n=1}^{\infty} f_n(z)  \) is analytic
+if \( \sum(f_n(z)-1) \) converges absolutely and uniformly on compact subsets of \( G \).
+Hence, let \[
+	\left(1+\frac{c}{(f_c^{\circ n}(z))^2}\right)^{\frac{1}{2^{n+1}}}=1+\theta_n(z,c)
+.\]
+Select a fixed \( z_0 \) (\( G_{c_0}(z_0)>G_{c_0}(0) \) for some \( c_0  \in  \mathbb{C}\bs M\)).\\
+In order to prove that \( c\mapsto \Phi(z_0,c) \) is analytic on \( S_{z_0} \), 
+we need to prove that \( \theta_n(z_0,\cdot) \) converges uniformly and absolutely on compact subsets of \( S_{z_0} \).
+Let \( K \) be a compact subset of \( S_{z_0} \).
 
+\begin{claim}
+	There exists \( N\in \mathbb{N} \) large enough so that 
+	for all \( c\in K \), \( |f_c^{\circ n}(z_0)|^2>2|c| \)
+	for all \( n\ge  N \). 
+\end{claim}
+\begin{proof}
+For each \( c\in K \), we have \( n_c \in \mathbb{N} \) such that \( |f_c^{\circ n}(z_0)|^2>2|c| \) for all \( n\ge n_c \).
+(Note that if \( |z|>2 \) and \(|z|^2>2|c|  \), then \( |f_c^{\circ n}(z)|^2 > 2|c| \) for all \( n\in \mathbb{N} \). Take \( n_c \)
+large enough such that \( | f_c^{\circ n_c}(z_0)| > 2 \) and \( |f_c^{\circ n_c}(z_0)|^2 > 2|c| \).)
+Suppose, we have such a \( \hat{c}\in K  \) and correspondingly \( n_{\hat{c}}\in \mathbb{N} \). Then there exists
+a neighbourhood of \( \hat{c} \), say \( B_{\hat{c}} \),
+such that for all \( c\in B_{\hat{c}}\), \( |f_c^{\circ n}(z_0)|^2>2|c| \) for all \( n\ge n_{\hat{c}} \). This is because, \( f_c^{\circ n_{\hat{c}}}(z_0) \)
+is a continuous function in \( c \) and so is \( (f_c^{\circ n_{\hat{c}}}(z_0))^2 /c \). Now, cover the compact set \( K \) by 
+all such neighbourhoods, take a finite subcover and take \( N \) as the maximum
+of all such \( n_c \) obtained from this finite subcover.
+\end{proof}
+
+\begin{claim}
+	For \( |w|<\frac{1}{2} \), \( |(1+w)^{\frac{1}{k}} -1|\le 2|w|/k \).
+\end{claim}
+\begin{proof}
+\end{proof}
+
+Now, for \( c\in K \) and \( n\ge N \), \( \frac{|c|}{|\fcof[n](z_0)|^2}<\frac{1}{2} \). Hence, from the above inequality, \[
+	|\theta _n(z_0,c)|\le \frac{2|c|}{2^{n+1}|f_c^{\circ n}(z_0)|^2}<\frac{1}{2^{n+1}}
+.\] 
+Hence, \( \sum_{n=1}^{\infty}\theta _n(z_0,c)  \) converges absolutely and uniformly on \( K \). Therefore, \( \Phi(z_0,c) \)
+is analytic on \( S_{z_0} \).
+Therefore, \( \Phi(z,c) \) is analytic in two variables on the set \( S=\{(z,c):c\in \mathbb{C}\bs M, G_c(z)>G_c(0)\} \).
+
+Now, for the second part, recall that for \( c\in M \), \( |c|\le 2 \). Thus,
+if \( |c|>2 \), \( c\in \mathbb{C}\bs M \).
+We have, \[
+	\Phi(c,c)/c=\prod_{n=0}^\infty \left( 1+ \frac{c}{(\fcof[n](c))^2} \right)^{\frac{1}{2^{n+1}}}
+.\] 
+\end{proof}
 
 \section{The Isomorphism by Douady and Hubbard}
 Douady and Hubbard proved that the Mandelbrot set is connected by defining an isomorphism \( \Psi:\mathbb{C}\bs M \to \mathbb{C}\bs \overline{\mathbb{D}}  \) given by, \[
@@ -41,7 +145,7 @@ To prove that it is indeed an isomorphism, we will proceed in the following step
 	\item \( \Psi \) is analytic: We already proved that \( (z,c)\mapsto \Phi(z,c) \) is analytic in two
 		variables. Hence the map \( c\mapsto (c,c)\mapsto \Phi(c,c) \) is analytic.
 	\item \( |\Psi(c_n)|\to 1 \) as \( c_n\to M \): This is due to the continuity of \( (z,c)\mapsto G_c(z) \) in two variables. Hence, \( c\mapsto (c,c)\mapsto G_c(c) \) is continuous. Hence, as \( c_n\to c_0\in M \), \( G_{c_n}(c_n)\to G_{c_0}(c_0)=0 \). Hence, \( \log |\phi_{c_n}|(c_n) = \log |\phi_{c_n}(c_n)|\to 0\implies|\phi_{c_n}(c_n)|\to 1  \).
-	\item \( \Psi \) can be extended to an analytic map \( \Psi:\Cinf\bs M\to \Cinf\bs \overline{\mathbb{D}}  \) by definiing \( \Psi(\infty)=\infty \): This is due to the fact that \( \Psi(c) /c=\Phi(c,c) /c\to 1 \) as \( c\to \infty \).
+	\item \( \Psi \) can be extended to an analytic map \( \Psi:\Cinf\bs M\to \Cinf\bs \overline{\mathbb{D}}  \) by defining \( \Psi(\infty)=\infty \): This is due to the fact that \( \Psi(c) /c=\Phi(c,c) /c\to 1 \) as \( c\to \infty \).
 	\item This extension is a proper map: Let \( K \) be a compact subset of \( \Cinf\bs \overline{\mathbb{D}}  \). Clearly, \( \Psi^{-1}(K) \) is a closed subset of \( \Cinf\bs M \). If \( \Psi^{-1}(K) \) is not compact, there is a sequence, \( (c_n)_{n=1}^\infty\subset \Psi^{-1}(K) \) such that \( c_n\to M \). This implies \( |\Psi(c_n)|\to 1 \) by point 3. This is not possible as \( K \) being a compact subset of \( \Cinf\bs\overline{\mathbb{D}} \) is at a positive distance from \( \mathbb{D} \).
 	\item Now, \( \Psi \) being a proper holomorphic map, it is a branched covering of some degree \( d \).
 		As \( \Psi^{-1}(\infty)=\{\infty\} \) with multiplicity \( 1 \) (because \( \Psi(c) /c\to 1 \)

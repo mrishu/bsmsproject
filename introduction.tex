@@ -1,14 +1,102 @@
 \chapter{Introduction}
-\section{Equicontinuity and Normality}
+\section{Spherical and Chordal metric}
+
+\section{Definition of Fatou and Julia sets in terms of equicontinuity}
+\begin{definition}[\textbf{Fatou and Julia Sets}]
+	Let \( R \) be a non-constant rational function. The Fatou set of \( R \) denoted by \( F(R) \) is 
+	the maximal open subset of \( \Cinf \) on which \( \{\ror[n]\}\) is equicontinuous. The Julia set of \( R \),
+	denoted by \( J(R) \) is the complement of \( F(R) \) in \( \Cinf \).
+\end{definition}
+By definition, \( F(R) \) is open and \( J(R) \) is compact.\\
+They are denoted by simply \( F \) or \( J \) when the context is clear.
 
 \section{Completely Invariant Components}
-A domain \( D \) is called:
+If \( f:X\to X \), then a subset \( D\subset X \) is:
 \begin{itemize}
 	\item \emph{forward invariant} under the map \( f \) if \( f(D)=D \).
 	\item \emph{backward invariant} under the map \( f \) if \( f^{-1}(D)=D \).
 	\item \emph{completely invariant} under the map \( f \) if it is both forward
 		and backward invariant under \( f \) i.e. \( f(D)=D \) and \( f^{-1}(D)=D \).
 \end{itemize}
+Note that if \( f \) is surjective, i.e. \( f(X)=X \), then backward invariance implies complete invariance.
+This is because, \( f(f^{-1}(D))=D \) if \( f \) is surjective. Hence, if \(f^{-1}(D)=D  \), we have \( f(D)=D \) i.e.
+forward invariance.
+
+\begin{theorem}
+	If \( f:X\to X \) be a continuous, open and surjective map of a topological space \( X \) onto itself.
+	If \( D\subset X \) is completely invariant under \( f \), then so are the complement \( X\bs D \), the interior \( D^0 \), 
+	the boundary \( \partial D \) and the closure \( \overline{D}  \).
+\end{theorem}
+\begin{proof}
+	Firstly, note that it is enough to prove backward invariance since \( f \) is surjective.\\
+	It is trivial to see that \( X\bs D \) is completely invariant. 
+
+	Now, since \( f \) is a continuous map,
+	\( f^{-1}(D^0) \) is an open subset of \( f^{-1}(D)=D \). Hence, \( f^{-1}(D^0) \subset D^0 \). Now, since \( f \) is an open map,
+	\( f(D^0) \) is an open subset of \( f(D)=D \). Hence, \( f(D^0) \subset D^0 \implies D^0 \subset f^{-1}(f(D^0)) \subset f^{-1}(D^0) \).
+	Hence, \( f^{-1}(D^0)=D^0 \) and hence, \( D^0 \) is completely invariant.
+	
+	From the general fact for continuous maps, \( \overline{ f^{-1}(A)}\subset f^{-1}(\overline{A})  \). Hence, \( \overline{D}\subset f^{-1}(\overline{D})   \). Now, let \( x\in f^{-1}(\overline{D})  \) (or \( f(x)\in \overline{D}  \)). If \( x\not\in \overline{D}  \), then there exists and open set around \( x \), say \( U \) such that \( U\cap D=\phi \). Since \( f \) is an open map, \( f(U) \) is an open set containing \( f(x) \). Since, \( f(x)\in \overline{D}  \), \( f(U)\cap D\neq \phi \). But since, \( f^{-1}(D)=D \), \( f^{-1}(f(U)\cap D)\subset D \). But, \( f^{-1}(f(U)\cap D)\cap U\neq \phi \implies D\cap U\neq \phi\), which is a contradiction. Hence, \( \overline{D}=f^{-1}(\overline{D})   \). Hence, \( \overline{D}  \) is also completely invariant.
+
+	Consequently, \( \partial D=\overline{D}\bs D^0  \) is also completely invariant.
+\end{proof}
+
+\begin{theorem}
+	For any rational function \( R \), the Fatou and Julia sets of \( R \) i.e. \( F(R) \) and
+	\( J(R) \) are completely invariant.
+\end{theorem}
+\begin{proof}
+	First note that it is enough to prove only backward invariance because \( R \) is surjective.
+	Also, we will only prove the complete invariance of \( F(R) \), the complete invariance of \( J(R) \) then follows
+	from above theorem. We will use \( F \) to denote \( F(R) \).
+
+	Let \( z_0\in R^{-1}(F) \) and let \( w_0=R(z_0)\in F \). By equicontinuity, for any \( \epsilon>0 \), \( \exists \delta>0 \) such
+	that if \( \sigma(z,z_0)<\delta \), then for all \( n \in \mathbb{N} \), \( \sigma(\ror[n](w),\ror[n](w_0))<\epsilon \). By continuity of \( R \),
+	there exists \( \delta'>w_0 \) such that if \( \sigma(z,w_0)<\delta' \), then \( \sigma(R(z),w_0)<\delta \) and hence,
+	\( \sigma(\ror[n+1](z),\ror[n+1](z_0))<\epsilon \) for all \( n\in \mathbb{N} \). Hence, \( \{\ror[n+1]:n \in \mathbb{N}\} \) is equicontinuous 
+	at \( z_0 \) and hence, so is \( \{\ror[n]:n \in \mathbb{N}\} \). Therefore, \( z_0 \in F \) and \( R^{-1}(F) \subset F \). 
+
+	Now, let \( z_0 \in F \). To prove that \( z_0\in R^{-1}(F) \), we need to prove that \( R(z_0)\in F \). Let \( w_0=R(z_0) \).
+	We have by equicontinuity, that for any \(\epsilon>0  \), \( \exists \delta>0 \) such that for all \( n \in  \mathbb{N} \), if \( \sigma(z,z_0)<\delta \), then \( \sigma(\ror[n+1](z),\ror[n+1](z_0))<\epsilon \). Now, \( N=\{z:\sigma(z,z_0)<\delta\} \) is an open set containing \( z_0 \)
+	and hence, \( R(N) \) is an open set containing \( w_0 \). Now, if \( w\in R(N) \) then \( w=R(z) \) for some \( z\in N \). Hence, \[
+		\sigma(\ror[n](w),\ror[n](w_0))=\sigma(\ror[n+1](z),\ror[n+1](z_0))<\epsilon
+	.\] Hence, \( z_0\in R^{-1}(F) \) and \( F \subset R^{-1}(F) \).
+
+Therefore, \( R^{-1}(F)=F \) and \( F(R) \) is completely invariant.
+\end{proof} 
+
+\begin{lemma}\label{thm1.3}
+For any rational map \( R \) and a domain \( U \subset  \Cinf\), \( \partial R(U) \subset R(\partial U) \).
+\end{lemma}
+\begin{proof}
+	Let \( w_0\in \partial R(U) \) such that it is approximated by \( R(z_n) \) for \( (z_n)_{n=1}^\infty \subset U \).
+	Now, assume \( z_n\to z_0 \) (after taking a subsequence). Now, \( z_0 \) cannot lie in \( U \), otherwise \( R(z_0)=w_0 \in R(U) \).
+	Since, \( R \) is an open map, \( R(U) \) is an open set and is disjoint from \( \partial R(U) \). Hence, \( z_0\in \partial U \)
+	and \( R(z_0)=w_0 \in R(\partial U) \). Therefore, \( \partial R(U) \subset R(\partial U) \).
+\end{proof}
+
+\begin{lemma}\label{lem1.1}
+	For a rational map \( R \), if \( F_1 \) and \( F_2 \) are two Fatou components and \( R \)
+	maps a point of \( F_1 \) to a point of \( F_2 \), then \( R(F_1)=F_2 \).
+\end{lemma}
+\begin{proof}
+Clearly, \( R(F_1)\subset F_2 \) because of forward invariance of \( F \) under \( R \) and since \( F_1 \) and \( F_2 \)
+are connected components of \( F \). If \( R(F_1)\neq F_2 \), then \( \exists z \in \partial F_1 \) such that \( R(z)\in F_2 \) and
+this is not possible as \( z\in \partial F_1\implies z\in J \) and \( J \) is completely invariant. Hence, \( R(F_1)=F_2 \).
+\end{proof}
+
+\begin{theorem}\label{thm1.4}
+	The unbounded Fatou component of a polynomial \( P \), i.e. the Fatou component containing \( \infty \)
+	is a completely invariant Fatou component. It is denoted by \( F_\infty(P) \) or simply \( F_\infty \) when
+	the context is clear.
+\end{theorem}
+\begin{proof}
+	First note that since \( P(\infty)=\infty \), we have \( P(F_\infty)=F_\infty \) by the above lemma. Hence, \( F_\infty \subset P^{-1}(F_\infty) \).
+	Now assume, some point \( z_0\in P^{-1}(F_\infty) \) but \( z_0\not\in F_\infty \). By backward invariance of \( F \),  \( z_0\in F' \),
+	where \( F' \) is some other Fatou component. Again, \( P(F')=F_\infty \) by above lemma. But for polynomials, we have \( P^{-1}(\infty)=\{\infty\}\). Hence, \( \infty \in F' \) and \( F' \) must be \( F_\infty \) itself. Therefore, \( P^{-1}(F_\infty)=F_\infty \) and \( F_\infty \) is completely invariant under \( P \).
+\end{proof}
+
+\section{Equicontinuity and Normality}
 
 \begin{definition}[Connectivity]
 	The connectivity of a domain \( D \subset \Cinf \) is defined as the number
@@ -35,20 +123,6 @@ A domain \( D \) is called:
 	\end{enumerate}
 \end{theorem}
 
-\begin{theorem}\label{thm1.3}
-\( \partial R(U) \subset R(\partial U) \)
-\end{theorem}
-
-\begin{lemma}\label{lem1.1}
-	For a rational map \( R \), if \( F_1 \) and \( F_2 \) are two Fatou components and \( R \)
-	maps a point of \( F_1 \) to a point of \( F_2 \), then \( R(F_1)=F_2 \).
-\end{lemma}
-
-\begin{theorem}\label{thm1.4}
-	The unbounded Fatou component of a polynomial \( P \), i.e. the Fatou component containing \( \infty \)
-	is a completely invariant Fatou component. It is denoted by \( F_\infty(P) \) or simply \( F_\infty \) when
-	the context is clear.
-\end{theorem}
 
 \begin{theorem}[\textbf{Vitali's Theorem}]
 
