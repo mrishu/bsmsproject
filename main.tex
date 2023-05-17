@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt,openany]{scrbook}
 
 % For the titlepage
 \author{Aditya Dutta}
@@ -26,7 +26,15 @@
 \usepackage[margin=2.5cm]{geometry} % modify margins
 \usepackage{graphicx} % include images
 \usepackage{booktabs} % better latex tables
-\usepackage{apacite} % for bibliography
+
+\usepackage[
+	backend=biber,
+	style=alphabetic,
+]{biblatex}
+\addbibresource{refs.bib}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
 
 % Gilles's castel's code for including inkscape images
 \usepackage{import}
@@ -42,6 +50,7 @@
 \theoremstyle{plain}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem*{AAT}{Arzela-Ascoli Theorem}
 \newtheorem*{claim}{Claim}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -55,7 +64,7 @@
 \newcommand{\ror[1]}{R^{\circ #1}}
 \newcommand{\pop[1]}{P^{\circ #1}}
 \newcommand{\bs}{\backslash}
-\newcommand{\Cinf}{\hat{\mathbb{C}}}
+\newcommand{\Cinf}{\mathbb{C}_\infty}
 \newcommand{\Finf}{F_\infty}
 \newcommand{\re}{\text{Re}}
 
@@ -68,4 +77,9 @@
 \include{bottcher.tex}
 \include{mandelbrot.tex}
 \include{mandelbrot_connected.tex}
+
+\medskip
+
+\nocite{*}
+\printbibliography
 \end{document}

@@ -154,4 +154,18 @@ and hence is bounded.
 \end{proof}
 
 \section{Plotting the Mandelbrot Set}
-\Cref{thm4.1} is also used to plot the Mandelbrot Set. A simple code in python would
+\Cref{thm4.1} is also used to plot the Mandelbrot Set. A simple code would involve going through each
+pixel \( (x,y) \) in a \( N\times N \) square (where \( N>2 \)) and seeing if the iterates of \( 0 \)
+under the map, \( f_c(z)=z^2+c \), where \( c=x+iy \),
+become larger than of modulus \( 2 \) after a large number of iterations.
+
+If the modulus of iterates of \( 0 \) do not cross the value \( 2 \) after a large number of iterations,
+\( c=x+iy \) probably lies in the Mandelbrot set and we color it black. If not, then we leave it uncolored.
+
+A simple code in Python generates the following picture:
+
+\begin{figure}[htbp]
+\includegraphics[scale=.35]{figures/mandelbrot.png}
+\caption{The Mandelbrot Set}
+\label{mandelbrot}
+\end{figure}

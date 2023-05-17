@@ -52,17 +52,11 @@ Also, note that \( G \) satisfies the functional equation, \( G_c(f(z))=2G_c(z) 
 \end{itemize}
 Therefore, \( U_c=\{z\in \mathbb{C}:G_c(z)>G_c(0)\} \).
 \begin{lemma}
-	The map \( (z,c)\mapsto G_c(z) \) is jointly continuous in two variables on \( \mathbb{C}^2 \).
-\end{lemma}
-
-\begin{lemma}
 	The map \( \Phi(z,c)= \phi_c(z) \) is holomorphic in 
 	two variables on the set \( S=\{(z,c): c\in \mathbb{C}\bs M, G_c(z)>G_c(0)\} \)
 	and \( \Phi(c,c) /c \to 1 \) as \( c\to \infty \).
 \end{lemma}
 \begin{proof}
-	First we note that \( S \) is an open set in \( \mathbb{C}^2 \). This is due to the map
-	\( (z,c)\mapsto G_c(z) \) being jointly continuous.
 	For a map to be holomorphic in two variables, it should be holomorphic in each variable
 	when the other variable is kept fixed.
 
@@ -87,7 +81,7 @@ Now, \[
 and we write \( \Phi \) as the infinite product, \[
 \Phi(z,c)=z\prod_{n=0}^{\infty} \frac{\Phi_{n+1}(z,c)}{\Phi_n(z,c)} =z \prod_{n=0}^{\infty} \left(1+\frac{c}{(f_c^{\circ n}(z))^2}\right)^{\frac{1}{2^{n+1}}}
 .\] 
-By Weierstrass Factorization Theorem (Conway Pg. 167), if \( (f_n)_{n=1}^{\infty} \) is a sequence of analytic functions on \( G \subset \mathbb{C} \)
+By Weierstrass Factorization Theorem \parencite[See][pg 167]{conway}, if \( (f_n)_{n=1}^{\infty} \) is a sequence of analytic functions on \( G \subset \mathbb{C} \)
 then \( \prod_{n=1}^{\infty} f_n(z)  \) is analytic
 if \( \sum(f_n(z)-1) \) converges absolutely and uniformly on compact subsets of \( G \).
 Hence, let \[
@@ -119,6 +113,15 @@ of all such \( n_c \) obtained from this finite subcover.
 	For \( |w|<\frac{1}{2} \), \( |(1+w)^{\frac{1}{k}} -1|\le 2|w|/k \).
 \end{claim}
 \begin{proof}
+	We integrate the derivative of \( (1+w)^{1/k} \) along the radial segment from \( 0 \) to \( w \).
+	\begin{align*}
+		&\int_0^w \frac{d}{dw}(1+w)^{1/k} dw = \int_0^w\frac{1}{k}(1+w)^{1/k-1} dw\\
+		\implies& (1+w)^{1/k}-1=\frac{1}{k}\int_0^w (1+w)^{1/k-1} dw\\
+		\implies& |(1+w)^{1/k}-1|\le \frac{|w|}{k} \sup(|1+w|^{1/k-1})\le 2|w|/k 
+	.\end{align*}
+	For \( |w|<\frac{1}{2} \), \( \frac{1}{2}<|1+w|<\frac{3}{2}\implies (\frac{1}{2})^{1/k-1}\ge |1+w|^{1/k-1} \ge (\frac{3}{2})^{1/k-1} \).\\
+		As \( k \) increases, \( (\frac{1}{2})^{1/k-1} \) increases and approaches \( 2 \) as \( k\to \infty \).\\
+		Hence, \( |1+w|^{1/k-1} \le (\frac{1}{2})^{1/k-1}<2 \).
 \end{proof}
 
 Now, for \( c\in K \) and \( n\ge N \), \( \frac{|c|}{|\fcof[n](z_0)|^2}<\frac{1}{2} \). Hence, from the above inequality, \[
@@ -129,10 +132,20 @@ is analytic on \( S_{z_0} \).
 Therefore, \( \Phi(z,c) \) is analytic in two variables on the set \( S=\{(z,c):c\in \mathbb{C}\bs M, G_c(z)>G_c(0)\} \).
 
 Now, for the second part, recall that for \( c\in M \), \( |c|\le 2 \). Thus,
-if \( |c|>2 \), \( c\in \mathbb{C}\bs M \).
+if \( |c|>2 \), \( c\in \mathbb{C}\bs M \).\\
+Firstly, we observe that if \( |c|>2 \) and \( |z|^2>2|c| \), \[ |f_c(z)|\ge |z|^2-|c|\ge |c| \implies|f_c(z)|^2\ge |c|^2>2|c|.\]
+Hence, if \( |c|>2 \), \( |\fcof[n](c)|^2>2|c| \) for all \( n \).\\
 We have, \[
-	\Phi(c,c)/c=\prod_{n=0}^\infty \left( 1+ \frac{c}{(\fcof[n](c))^2} \right)^{\frac{1}{2^{n+1}}}
+	\Phi(c,c)/c=\prod_{n=0}^\infty \left( 1+ \frac{c}{(\fcof[n](c))^2} \right)^{\frac{1}{2^{n+1}}}=\prod_{n=0}^\infty(1+\theta_n(c,c))
 .\] 
+Also by \( \frac{|c|}{|\fcof[n](c)|^2}<\frac{1}{2} \), for all \( n \in \mathbb{N} \), \[
+	|\theta_n(c,c)|<\frac{1}{2^{n+1}}
+.\] 
+Hence, \( \Phi(c,c) /c \) converges uniformly on \( |c|>2 \). \\
+We see that each term of the product, \[
+	\Phi(c,c) /c=\left(1+\frac{c}{c^2}\right)^{1/2}\cdot\left(1+\frac{c}{(c^2+c)^2}\right)^{1/4}\cdots\left(1+\frac{c}{(\fcof[n](c))^2}\right)^{1/2^{n+1}}\cdots
+\] 
+converges to \( 1 \). Hence, \( \Phi(c,c) /c\to 1 \) as \( c\to \infty \).
 \end{proof}
 
 \section{The Isomorphism by Douady and Hubbard}
