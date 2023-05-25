@@ -1,5 +1,5 @@
-# BS-MS Project Thesis
-# Introduction to Complex Dynamics and the Mandelbrot Set
+# BS-MS Project Report
+## Introduction to Complex Dynamics and the Mandelbrot Set
 
 In this project, I studied the dynamics of rational maps on the complex sphere, mainly from
 the book "Iterations of Rational functions" by Alan F. Beardon.  
